@@ -38,6 +38,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_RECORD,
     /** \brief POINTER keyword. */
     RCC_TOKEN_TYPE_KEYWORD_POINTER,
+    /** \brief OPAQUE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_OPAQUE,
 };
 
 /* C++ compatibility. */
