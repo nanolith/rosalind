@@ -1,7 +1,7 @@
 /**
  * \file fido/main.c
  *
- * \brief Entry point for fido.
+ * \brief Entry point for rcc.
  *
  * See LICENSE.txt for copyright and license information.
  */
