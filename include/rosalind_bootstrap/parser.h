@@ -18,14 +18,16 @@ extern "C" {
 
 enum rcc_token_type
 {
-    /** \brief Begin a block. */
+    /** \brief BEGIN keyword. */
     RCC_TOKEN_TYPE_KEYWORD_BEGIN = 1,
-    /** \brief End a block. */
+    /** \brief END keyword. */
     RCC_TOKEN_TYPE_KEYWORD_END,
-    /** \brief Module keyword. */
+    /** \brief MODULE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
-    /** \brief Import keyword. */
+    /** \brief IMPORT keyword. */
     RCC_TOKEN_TYPE_KEYWORD_IMPORT,
+    /** \brief PUBLIC keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_PUBLIC,
 };
 
 /* C++ compatibility. */
