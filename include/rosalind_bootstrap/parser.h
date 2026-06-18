@@ -24,6 +24,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_END,
     /** \brief Module keyword. */
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
+    /** \brief Import keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IMPORT,
 };
 
 /* C++ compatibility. */
