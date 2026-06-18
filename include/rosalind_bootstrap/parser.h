@@ -48,6 +48,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_REVEAL,
     /** \brief PRECONDITIONS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_PRECONDITIONS,
+    /** \brief POSTCONDITIONS keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_POSTCONDITIONS,
 };
 
 /* C++ compatibility. */
