@@ -50,6 +50,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_FUNCTION,
     /** \brief PROCEDURE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_PROCEDURE,
+    /** \brief VAR keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_VAR,
     /** \brief PRECONDITIONS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_PRECONDITIONS,
     /** \brief POSTCONDITIONS keyword. */
