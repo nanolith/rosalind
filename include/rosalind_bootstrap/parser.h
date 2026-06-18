@@ -22,6 +22,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_BEGIN = 1,
     /** \brief End a block. */
     RCC_TOKEN_TYPE_KEYWORD_END,
+    /** \brief Module keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_MODULE,
 };
 
 /* C++ compatibility. */
