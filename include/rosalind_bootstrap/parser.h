@@ -34,6 +34,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_CONST,
     /** \brief TYPE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_TYPE,
+    /** \brief RECORD keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_RECORD,
 };
 
 /* C++ compatibility. */
