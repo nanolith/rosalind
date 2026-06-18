@@ -44,6 +44,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_OPAQUE,
     /** \brief HIDE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_HIDE,
+    /** \brief REVEAL keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_REVEAL,
 };
 
 /* C++ compatibility. */
