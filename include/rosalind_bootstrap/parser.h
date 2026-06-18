@@ -20,6 +20,8 @@ enum rcc_token_type
 {
     /** \brief Begin a block. */
     RCC_TOKEN_TYPE_KEYWORD_BEGIN = 1,
+    /** \brief End a block. */
+    RCC_TOKEN_TYPE_KEYWORD_END,
 };
 
 /* C++ compatibility. */
