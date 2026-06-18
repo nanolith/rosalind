@@ -60,6 +60,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_INVARIANTS,
     /** \brief INTERFACE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_INTERFACE,
+    /** \brief IMPLEMENTS keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS,
 };
 
 /* C++ compatibility. */
