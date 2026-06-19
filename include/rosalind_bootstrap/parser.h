@@ -10,6 +10,7 @@
 
 #include <rosalind_bootstrap/error_codes.h>
 #include <rosalind_bootstrap/function_decl.h>
+#include <stddef.h>
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
@@ -70,6 +71,21 @@ enum rcc_token_type
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
+};
+
+/**
+ * \brief Token details.
+ */
+typedef struct rcc_token_details rcc_token_details;
+struct rcc_token_details
+{
+    int type;
+    size_t begin_index;
+    size_t end_index;
+    size_t begin_line;
+    size_t end_line;
+    size_t begin_col;
+    size_t end_col;
 };
 
 /* C++ compatibility. */
