@@ -101,6 +101,24 @@ struct rcc_scanner
     size_t col;
 };
 
+/******************************************************************************/
+/* Start of constructors.                                                     */
+/******************************************************************************/
+
+/**
+ * \brief Create a \ref rcc_scanner instance.
+ *
+ * \param scanner           Pointer to the scanner pointer to be set to this
+ *                          created scanner instance on success.
+ * \param input             The input string to scan.
+ *
+ * \returns a status code indicating success or failure.
+ *      - 0 on success.
+ *      - a non-zero error code on failure.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_create(rcc_scanner** scanner, const char* input);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
