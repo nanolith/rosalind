@@ -119,6 +119,14 @@ struct rcc_scanner
 int FN_DECL_MUST_CHECK
 rcc_scanner_create(rcc_scanner** scanner, const char* input);
 
+/**
+ * \brief Release a \ref rcc_scanner instance.
+ *
+ * \param scanner           The scanner to release.
+ */
+void
+rcc_scanner_release(rcc_scanner* scanner);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
