@@ -88,6 +88,19 @@ struct rcc_token_details
     size_t end_col;
 };
 
+/**
+ * \brief rcc_scanner implementation.
+ */
+typedef struct rcc_scanner rcc_scanner;
+struct rcc_scanner
+{
+    const char* original_input;
+    const char* input;
+    size_t index;
+    size_t line;
+    size_t col;
+};
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
