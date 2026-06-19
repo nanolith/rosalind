@@ -149,6 +149,24 @@ int FN_DECL_MUST_CHECK
 rcc_scanner_read_token(
     rcc_token_details* details, rcc_scanner* scanner);
 
+/**
+ * \brief Peek a token from the scanner instance, populating the provided token
+ * structure with details.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_SCANNER_TOKEN_TYPE_EOF at the end of input.
+ *      - RCC_SCANNER_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad
+ *        input.
+ *      - a value belonging to the \ref rcc_scanner_token_type enumeration.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_peek_token(
+    rcc_token_details* details, rcc_scanner* scanner);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
