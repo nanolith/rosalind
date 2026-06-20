@@ -20,6 +20,13 @@ extern "C" {
 /******************************************************************************/
 
 /**
+ * \brief Skip to the next character.
+ *
+ * \param scanner           The scanner instance for this operation.
+ */
+void rcc_scanner_next_character(rcc_scanner* scanner);
+
+/**
  * \brief Skip over whitespace, returning the first non-whitespace character.
  *
  * Update the line and column information.
