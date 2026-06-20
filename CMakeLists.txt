@@ -15,7 +15,7 @@ configure_file(compile_opts.h.cmake include/rosalind_bootstrap/compile_opts.h)
 #source files
 file(GLOB_RECURSE ROSALIND_BOOTSTRAP_SOURCES src/bootstrap/*.c)
 list(
-    FILTER ROSALIND_BOOTSTRAP_SOURCES_SOURCES
+    FILTER ROSALIND_BOOTSTRAP_SOURCES
     EXCLUDE REGEX ".*/main[.]c")
 file(GLOB ROSALIND_BOOTSTRAP_SOURCES_MAIN src/bootstrap/main.c)
 
