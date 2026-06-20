@@ -3,8 +3,7 @@
  *
  * \brief Release a scanner instance.
  *
- * \copyright 2026 Justin Handville.  Please see license.txt in this
- * distribution for the license terms under which this software is distributed.
+ * See LICENSE.txt for copyright and license information.
  */
 
 #include <stdlib.h>
