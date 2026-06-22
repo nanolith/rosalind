@@ -62,7 +62,7 @@ int rcc_scanner_token_details_end(
     rcc_token_details* details, rcc_scanner* scanner, int type);
 
 /**
- * \brief Attempt to complete a begin keyword token.
+ * \brief Attempt to complete a BEGIN keyword token.
  *
  * \param details           Pointer to the token structure to receive additional
  *                          details.
