@@ -40,6 +40,15 @@ void rcc_scanner_next_character(rcc_scanner* scanner);
 int FN_DECL_MUST_CHECK
 rcc_scanner_skip_whitespace(rcc_scanner* scanner);
 
+/**
+ * \brief Begin the input token, populating token details.
+ *
+ * \param details           The details to populate with the begin token data.
+ * \param scanner           The scanner instance.
+ */
+void rcc_scanner_token_details_begin(
+    rcc_token_details* details, rcc_scanner* scanner);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
