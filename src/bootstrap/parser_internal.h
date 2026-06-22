@@ -49,6 +49,18 @@ rcc_scanner_skip_whitespace(rcc_scanner* scanner);
 void rcc_scanner_token_details_begin(
     rcc_token_details* details, rcc_scanner* scanner);
 
+/**
+ * \brief End the current input token, populating token details.
+ *
+ * \param details           The details to populate with the end token data.
+ * \param scanner           The scanner instance.
+ * \param type              The token type.
+ *
+ * \returns the token type.
+ */
+int rcc_scanner_token_details_end(
+    rcc_token_details* details, rcc_scanner* scanner, int type);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
