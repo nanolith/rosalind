@@ -23,6 +23,7 @@ file(GLOB ROSALIND_BOOTSTRAP_SOURCES_MAIN src/bootstrap/main.c)
 file(GLOB_RECURSE ROSALIND_BOOTSTRAP_TEST_SOURCES test/bootstrap/*.cpp)
 
 include_directories(include)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 include_directories(${CMAKE_BINARY_DIR}/include)
 
 ADD_EXECUTABLE(
