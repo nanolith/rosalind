@@ -21,50 +21,50 @@ enum rcc_token_type
 {
     /** \brief BEGIN keyword. */
     RCC_TOKEN_TYPE_KEYWORD_BEGIN = 1,
+    /** \brief CONST keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_CONST,
     /** \brief END keyword. */
     RCC_TOKEN_TYPE_KEYWORD_END,
+    /** \brief FUNCTION keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_FUNCTION,
+    /** \brief HIDE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_HIDE,
+    /** \brief IMPLEMENT keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT,
+    /** \brief IMPLEMENTS keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS,
+    /** \brief INTERFACE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_INTERFACE,
+    /** \brief INVARIANTS keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_INVARIANTS,
     /** \brief MODULE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
     /** \brief IMPORT keyword. */
     RCC_TOKEN_TYPE_KEYWORD_IMPORT,
-    /** \brief PUBLIC keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_PUBLIC,
-    /** \brief PRIVATE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_PRIVATE,
-    /** \brief CONST keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_CONST,
-    /** \brief TYPE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_TYPE,
-    /** \brief RECORD keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_RECORD,
-    /** \brief POINTER keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_POINTER,
-    /** \brief TO keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_TO,
     /** \brief OPAQUE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_OPAQUE,
-    /** \brief HIDE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_HIDE,
-    /** \brief REVEAL keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_REVEAL,
-    /** \brief FUNCTION keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_FUNCTION,
-    /** \brief PROCEDURE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_PROCEDURE,
-    /** \brief VAR keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_VAR,
-    /** \brief PRECONDITIONS keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_PRECONDITIONS,
+    /** \brief POINTER keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_POINTER,
     /** \brief POSTCONDITIONS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_POSTCONDITIONS,
-    /** \brief INVARIANTS keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_INVARIANTS,
-    /** \brief INTERFACE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_INTERFACE,
-    /** \brief IMPLEMENTS keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS,
-    /** \brief IMPLEMENT keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT,
+    /** \brief PRECONDITIONS keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_PRECONDITIONS,
+    /** \brief PRIVATE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_PRIVATE,
+    /** \brief PROCEDURE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_PROCEDURE,
+    /** \brief PUBLIC keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_PUBLIC,
+    /** \brief RECORD keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_RECORD,
+    /** \brief REVEAL keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_REVEAL,
+    /** \brief TO keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_TO,
+    /** \brief TYPE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_TYPE,
+    /** \brief VAR keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_VAR,
 
     /** \brief identifier token. */
     RCC_TOKEN_TYPE_IDENTIFIER,
