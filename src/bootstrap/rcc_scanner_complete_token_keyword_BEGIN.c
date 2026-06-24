@@ -1,7 +1,7 @@
 /**
  * \file bootstrap/rcc_scanner_complete_token_keyword_BEGIN.c
  *
- * \brief Complete an identifier token.
+ * \brief Complete a BEGIN token.
  *
  * See LICENSE.txt for copyright and license information.
  */
