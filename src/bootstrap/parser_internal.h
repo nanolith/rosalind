@@ -9,6 +9,7 @@
 #pragma once
 
 #include <rosalind_bootstrap/parser.h>
+#include <stdbool.h>
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
@@ -82,6 +83,8 @@ rcc_scanner_complete_token_keyword_BEGIN(
  * \param details           Pointer to the token structure to receive additional
  *                          details.
  * \param scanner           The scanner instance for this operation.
+ * \param read_start        Set to true if this read starts with the first
+ *                          character of the identifier.
  *
  * \returns a token from the scanner.
  *      - RCC_TOKEN_TYPE_IDENTIFIER on success.
@@ -89,7 +92,7 @@ rcc_scanner_complete_token_keyword_BEGIN(
  */
 int FN_DECL_MUST_CHECK
 rcc_scanner_complete_token_identifier(
-    rcc_token_details* details, rcc_scanner* scanner);
+    rcc_token_details* details, rcc_scanner* scanner, bool read_start);
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
