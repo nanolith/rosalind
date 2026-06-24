@@ -70,3 +70,32 @@ TEST(BEGIN_identifier_fallback)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can read an END token.
+ */
+TEST(END_happy_path)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "END \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read the END token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_END
+            == rcc_scanner_read_token_keyword_END(&details, scanner));
+
+    TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_END == details.type);
+    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT(2 == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT(3 == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
