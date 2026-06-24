@@ -33,4 +33,7 @@ TEST(scanner_create_release)
     TEST_EXPECT(1 == scanner->line);
     /* col starts at 1. */
     TEST_EXPECT(1 == scanner->col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
 }
