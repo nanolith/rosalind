@@ -33,14 +33,14 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT,
     /** \brief IMPLEMENTS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS,
+    /** \brief IMPORT keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IMPORT,
     /** \brief INTERFACE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_INTERFACE,
     /** \brief INVARIANTS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_INVARIANTS,
     /** \brief MODULE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
-    /** \brief IMPORT keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_IMPORT,
     /** \brief OPAQUE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_OPAQUE,
     /** \brief POINTER keyword. */
