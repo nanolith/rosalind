@@ -264,6 +264,30 @@ int FN_DECL_MUST_CHECK
 rcc_scanner_read_token_keyword_HIDE(
     rcc_token_details* details, rcc_scanner* scanner);
 
+/**
+ * \brief Attempt to read keywords starting with the letter I.
+ *
+ * \note This function exists mainly for verification purposes. The function,
+ * \ref rcc_scanner_complete_token_keyword_I_STAR is used by the scanner
+ * proper, and called by this function.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT
+ *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS
+ *      - RCC_TOKEN_TYPE_KEYWORD_IMPORT
+ *      - RCC_TOKEN_TYPE_KEYWORD_INTERFACE
+ *      - RCC_TOKEN_TYPE_KEYWORD_INVARIANTS
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_read_token_keyword_I_STAR(
+    rcc_token_details* details, rcc_scanner* scanner);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
