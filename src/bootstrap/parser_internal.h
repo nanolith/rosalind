@@ -108,6 +108,22 @@ rcc_scanner_complete_token_keyword_END(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
+ * \brief Attempt to complete a FUNCTION keyword token.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_FUNCTION or RCC_TOKEN_TYPE_IDENTIFIER on
+ *        success.
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_complete_token_keyword_FUNCTION(
+    rcc_token_details* details, rcc_scanner* scanner);
+
+/**
  * \brief Attempt to complete an identifier token.
  *
  * \param details           Pointer to the token structure to receive additional
