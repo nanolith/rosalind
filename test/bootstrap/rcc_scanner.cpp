@@ -350,12 +350,41 @@ TEST(IMPLEMENT_identifier_fallback)
             == rcc_scanner_read_token_keyword_I_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
-    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT( 0 == details.begin_index);
     TEST_EXPECT(13 == details.end_index);
-    TEST_EXPECT(1 == details.begin_line);
-    TEST_EXPECT(1 == details.end_line);
-    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT( 1 == details.begin_line);
+    TEST_EXPECT( 1 == details.end_line);
+    TEST_EXPECT( 1 == details.begin_col);
     TEST_EXPECT(14 == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
+ * \brief Test that we can read an IMPLEMENTS token.
+ */
+TEST(IMPLEMENTS_happy_path)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "IMPLEMENTS \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read the IMPLEMENTS token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS
+            == rcc_scanner_read_token_keyword_I_STAR(&details, scanner));
+
+    TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS == details.type);
+    TEST_EXPECT( 0 == details.begin_index);
+    TEST_EXPECT( 9 == details.end_index);
+    TEST_EXPECT( 1 == details.begin_line);
+    TEST_EXPECT( 1 == details.end_line);
+    TEST_EXPECT( 1 == details.begin_col);
+    TEST_EXPECT(10 == details.end_col);
 
     /* clean up. */
     rcc_scanner_release(scanner);
