@@ -1114,3 +1114,32 @@ TEST(RECORD_identifier_fallback)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can read a REVEAL token.
+ */
+TEST(REVEAL_happy_path)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "REVEAL \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read the REVEAL token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_REVEAL
+            == rcc_scanner_read_token_keyword_R_STAR(&details, scanner));
+
+    TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_REVEAL == details.type);
+    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT(5 == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT(6 == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
