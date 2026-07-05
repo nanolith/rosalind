@@ -346,6 +346,7 @@ rcc_scanner_read_token_keyword_OPAQUE(
  *      - RCC_TOKEN_TYPE_KEYWORD_PRIVATE
  *      - RCC_TOKEN_TYPE_KEYWORD_PROCEDURE
  *      - RCC_TOKEN_TYPE_KEYWORD_PUBLIC
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
 int FN_DECL_MUST_CHECK
