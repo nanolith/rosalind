@@ -45,6 +45,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
     /** \brief OPAQUE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_OPAQUE,
+    /** \brief OR keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_OR,
     /** \brief POINTER keyword. */
     RCC_TOKEN_TYPE_KEYWORD_POINTER,
     /** \brief POSTCONDITIONS keyword. */
