@@ -33,6 +33,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_ELSE,
     /** \brief END keyword. */
     RCC_TOKEN_TYPE_KEYWORD_END,
+    /** \brief FOR keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_FOR,
     /** \brief FUNCTION keyword. */
     RCC_TOKEN_TYPE_KEYWORD_FUNCTION,
     /** \brief HIDE keyword. */
@@ -288,6 +290,27 @@ rcc_scanner_read_token_keyword_DIV(
  */
 int FN_DECL_MUST_CHECK
 rcc_scanner_read_token_keyword_E_STAR(
+    rcc_token_details* details, rcc_scanner* scanner);
+
+/**
+ * \brief Attempt to read keywords starting with the letter F.
+ *
+ * \note This function exists mainly for verification purposes. The function,
+ * \ref rcc_scanner_complete_token_keyword_F_STAR is used by the scanner
+ * proper, and called by this function.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_FOR
+ *      - RCC_TOKEN_TYPE_KEYWORD_FUNCTION
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_read_token_keyword_F_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
