@@ -51,6 +51,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS,
     /** \brief IMPORT keyword. */
     RCC_TOKEN_TYPE_KEYWORD_IMPORT,
+    /** \brief IN keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IN,
     /** \brief INTERFACE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_INTERFACE,
     /** \brief INVARIANTS keyword. */
