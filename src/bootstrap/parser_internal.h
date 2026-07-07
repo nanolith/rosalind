@@ -349,7 +349,7 @@ rcc_scanner_complete_token_keyword_XOR(
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
- *      - RCC_TOKEN_TYPE_KEYWORD_WHEN
+ *      - RCC_TOKEN_TYPE_KEYWORD_WHERE
  *      - RCC_TOKEN_TYPE_KEYWORD_WHILE
  *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
