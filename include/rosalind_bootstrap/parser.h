@@ -53,6 +53,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
     /** \brief NOT keyword. */
     RCC_TOKEN_TYPE_KEYWORD_NOT,
+    /** \brief OF keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_OF,
     /** \brief OPAQUE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_OPAQUE,
     /** \brief OR keyword. */
