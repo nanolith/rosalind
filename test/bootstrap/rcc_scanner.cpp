@@ -434,7 +434,7 @@ TEST(FUNCTION_happy_path)
     /* attempt to read the FUNCTION token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_FUNCTION
-            == rcc_scanner_read_token_keyword_FUNCTION(&details, scanner));
+            == rcc_scanner_read_token_keyword_F_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_FUNCTION == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -463,7 +463,7 @@ TEST(FUNCTION_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_FUNCTION(&details, scanner));
+            == rcc_scanner_read_token_keyword_F_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT( 0 == details.begin_index);
