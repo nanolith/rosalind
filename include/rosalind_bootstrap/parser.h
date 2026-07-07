@@ -320,6 +320,26 @@ rcc_scanner_read_token_keyword_F_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
+ * \brief Attempt to read a GOTO keyword token.
+ *
+ * \note This function exists mainly for verification purposes. The function,
+ * \ref rcc_scanner_complete_token_keyword_GOTO is used by the scanner
+ * proper, and called by this function.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_GOTO or RCC_TOKEN_TYPE_IDENTIFIER on
+ *        success.
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_read_token_keyword_GOTO(
+    rcc_token_details* details, rcc_scanner* scanner);
+
+/**
  * \brief Attempt to read a HIDE keyword token.
  *
  * \note This function exists mainly for verification purposes. The function,
