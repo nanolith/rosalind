@@ -12,6 +12,9 @@
 
 /* forward decls. */
 static int
+rcc_scanner_complete_token_keyword_IF(
+    rcc_token_details* details, rcc_scanner* scanner);
+static int
 rcc_scanner_complete_token_keyword_IM_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 static int
@@ -41,6 +44,7 @@ rcc_scanner_complete_token_keyword_INVARIANTS(
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_IF
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPORT
@@ -54,6 +58,14 @@ rcc_scanner_complete_token_keyword_I_STAR(
     rcc_token_details* details, rcc_scanner* scanner)
 {
     int retval;
+
+    /* handle IF token. */
+    if ('F' == *(scanner->input + 1))
+    {
+        rcc_scanner_next_character(scanner);
+        retval = rcc_scanner_complete_token_keyword_IF(details, scanner);
+        goto done;
+    }
 
     /* handle IM* tokens. */
     if ('M' == *(scanner->input + 1))
@@ -76,6 +88,45 @@ rcc_scanner_complete_token_keyword_I_STAR(
         rcc_scanner_complete_token_identifier(
             details, scanner, false);
     goto done;
+
+done:
+    return retval;
+}
+
+/**
+ * \brief Attempt to complete an IF keyword.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_IF
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+static int
+rcc_scanner_complete_token_keyword_IF(
+    rcc_token_details* details, rcc_scanner* scanner)
+{
+    int retval;
+
+    /* if the token continues with an alphanumeric, this is an identifier. */
+    if (isalnum(*(scanner->input + 1)))
+    {
+        goto identifier_fallback;
+    }
+    else
+    {
+        retval =
+            rcc_scanner_token_details_end(
+                details, scanner, RCC_TOKEN_TYPE_KEYWORD_IF);
+        rcc_scanner_next_character(scanner);
+        goto done;
+    }
+
+identifier_fallback:
+    retval = rcc_scanner_complete_token_identifier(details, scanner, false);
 
 done:
     return retval;
