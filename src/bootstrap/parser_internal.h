@@ -303,6 +303,7 @@ rcc_scanner_complete_token_keyword_R_STAR(
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_THEN
  *      - RCC_TOKEN_TYPE_KEYWORD_TO
  *      - RCC_TOKEN_TYPE_KEYWORD_TYPE
  *      - RCC_TOKEN_TYPE_IDENTIFIER
