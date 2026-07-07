@@ -48,6 +48,7 @@ rcc_scanner_complete_token_keyword_INVARIANTS(
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPORT
+ *      - RCC_TOKEN_TYPE_KEYWORD_IN
  *      - RCC_TOKEN_TYPE_KEYWORD_INTERFACE
  *      - RCC_TOKEN_TYPE_KEYWORD_INVARIANTS
  *      - RCC_TOKEN_TYPE_IDENTIFIER
@@ -399,9 +400,22 @@ rcc_scanner_complete_token_keyword_IN_STAR(
         goto done;
     }
 
-    /* identifier fallback. */
-    retval = rcc_scanner_complete_token_identifier(details, scanner, false);
-    goto done;
+    /* if the next letter is an alphanumeric or number, then fall back to an
+     * identifier. */
+    if (isalnum(*(scanner->input + 1)))
+    {
+        /* identifier fallback. */
+        retval = rcc_scanner_complete_token_identifier(details, scanner, false);
+        goto done;
+    }
+    else
+    {
+        retval =
+            rcc_scanner_token_details_end(
+                details, scanner, RCC_TOKEN_TYPE_KEYWORD_IN);
+        rcc_scanner_next_character(scanner);
+        goto done;
+    }
 
 done:
     return retval;
