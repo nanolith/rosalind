@@ -234,6 +234,7 @@ rcc_scanner_complete_token_keyword_NOT(
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_OF
  *      - RCC_TOKEN_TYPE_KEYWORD_OPAQUE
  *      - RCC_TOKEN_TYPE_KEYWORD_OR
  *      - RCC_TOKEN_TYPE_IDENTIFIER
