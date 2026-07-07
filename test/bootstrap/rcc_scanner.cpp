@@ -260,7 +260,7 @@ TEST(DIV_happy_path)
     /* attempt to read the DIV token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_DIV
-            == rcc_scanner_read_token_keyword_DIV(&details, scanner));
+            == rcc_scanner_read_token_keyword_D_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_DIV == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -289,7 +289,7 @@ TEST(DIV_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_DIV(&details, scanner));
+            == rcc_scanner_read_token_keyword_D_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
