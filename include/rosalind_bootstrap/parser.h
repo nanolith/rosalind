@@ -33,6 +33,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_FUNCTION,
     /** \brief HIDE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_HIDE,
+    /** \brief IF keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_IF,
     /** \brief IMPLEMENT keyword. */
     RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT,
     /** \brief IMPLEMENTS keyword. */
