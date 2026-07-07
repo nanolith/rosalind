@@ -23,6 +23,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_AND = 1,
     /** \brief BEGIN keyword. */
     RCC_TOKEN_TYPE_KEYWORD_BEGIN,
+    /** \brief CASE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_CASE,
     /** \brief CONST keyword. */
     RCC_TOKEN_TYPE_KEYWORD_CONST,
     /** \brief DIV keyword. */
