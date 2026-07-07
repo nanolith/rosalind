@@ -177,6 +177,7 @@ rcc_scanner_complete_token_keyword_HIDE(
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_IF
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENT
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPORT
