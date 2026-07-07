@@ -260,7 +260,7 @@ TEST(END_happy_path)
     /* attempt to read the END token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_END
-            == rcc_scanner_read_token_keyword_END(&details, scanner));
+            == rcc_scanner_read_token_keyword_E_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_END == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -289,7 +289,7 @@ TEST(END_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_END(&details, scanner));
+            == rcc_scanner_read_token_keyword_E_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
