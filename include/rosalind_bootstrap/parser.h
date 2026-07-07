@@ -532,7 +532,7 @@ rcc_scanner_read_token_keyword_XOR(
  * \brief Attempt to read keywords starting with a W.
  *
  * \note This function exists mainly for verification purposes. The function,
- * \ref rcc_scanner_complete_token_keyword_WHILE is used by the scanner
+ * \ref rcc_scanner_complete_token_keyword_W_STAR is used by the scanner
  * proper, and called by this function.
  *
  * \param details           Pointer to the token structure to receive additional
@@ -540,7 +540,7 @@ rcc_scanner_read_token_keyword_XOR(
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
- *      - RCC_TOKEN_TYPE_KEYWORD_WHEN
+ *      - RCC_TOKEN_TYPE_KEYWORD_WHERE
  *      - RCC_TOKEN_TYPE_KEYWORD_WHILE
  *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
