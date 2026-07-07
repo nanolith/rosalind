@@ -27,6 +27,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_CONST,
     /** \brief DIV keyword. */
     RCC_TOKEN_TYPE_KEYWORD_DIV,
+    /** \brief ELSE keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_ELSE,
     /** \brief END keyword. */
     RCC_TOKEN_TYPE_KEYWORD_END,
     /** \brief FUNCTION keyword. */
