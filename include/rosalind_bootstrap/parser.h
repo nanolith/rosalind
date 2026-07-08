@@ -99,6 +99,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_SHL,
     /** \brief SHR keyword. */
     RCC_TOKEN_TYPE_KEYWORD_SHR,
+    /** \brief STRING keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_STRING,
     /** \brief THEN keyword. */
     RCC_TOKEN_TYPE_KEYWORD_THEN,
     /** \brief TO keyword. */
