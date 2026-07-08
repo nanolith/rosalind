@@ -217,6 +217,23 @@ rcc_scanner_complete_token_keyword_I_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
+ * \brief Attempt to complete keywords starting with an M.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_MOD
+ *      - RCC_TOKEN_TYPE_KEYWORD_MODULE
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_complete_token_keyword_M_STAR(
+    rcc_token_details* details, rcc_scanner* scanner);
+
+/**
  * \brief Attempt to complete a MODULE keyword token.
  *
  * \param details           Pointer to the token structure to receive additional
