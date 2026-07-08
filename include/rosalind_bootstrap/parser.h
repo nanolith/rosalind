@@ -89,6 +89,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_REVEAL,
     /** \brief SHL keyword. */
     RCC_TOKEN_TYPE_KEYWORD_SHL,
+    /** \brief SHR keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_SHR,
     /** \brief THEN keyword. */
     RCC_TOKEN_TYPE_KEYWORD_THEN,
     /** \brief TO keyword. */
