@@ -1232,6 +1232,35 @@ TEST(MODULE_identifier_fallback)
 }
 
 /**
+ * \brief Test that we can read a NIL token.
+ */
+TEST(NIL_happy_path)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "NIL \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read the NIL token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_NIL
+            == rcc_scanner_read_token_keyword_N_STAR(&details, scanner));
+
+    TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_NIL == details.type);
+    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT(2 == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT(3 == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a NOT token.
  */
 TEST(NOT_happy_path)
