@@ -536,6 +536,7 @@ rcc_scanner_read_token_keyword_R_STAR(
  *      - RCC_TOKEN_TYPE_KEYWORD_SET
  *      - RCC_TOKEN_TYPE_KEYWORD_SHL
  *      - RCC_TOKEN_TYPE_KEYWORD_SHR
+ *      - RCC_TOKEN_TYPE_KEYWORD_STRING
  *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
