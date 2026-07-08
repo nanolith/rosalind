@@ -223,25 +223,6 @@ rcc_scanner_read_token_keyword_A_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
- * \brief Attempt to read an AND keyword token.
- *
- * \note This function exists mainly for verification purposes. The function,
- * \ref rcc_scanner_complete_token_keyword_AND is used by the scanner
- * proper, and called by this function.
- *
- * \param details           Pointer to the token structure to receive additional
- *                          details.
- * \param scanner           The scanner instance for this operation.
- *
- * \returns a token from the scanner.
- *      - RCC_TOKEN_TYPE_KEYWORD_AND or RCC_TOKEN_TYPE_IDENTIFIER on success.
- *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
- */
-int FN_DECL_MUST_CHECK
-rcc_scanner_read_token_keyword_AND(
-    rcc_token_details* details, rcc_scanner* scanner);
-
-/**
  * \brief Attempt to read a BEGIN keyword token.
  *
  * \note This function exists mainly for verification purposes. The function,
