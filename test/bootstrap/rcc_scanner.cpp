@@ -1035,7 +1035,7 @@ TEST(IN_identifier_fallback)
 {
     rcc_scanner* scanner = nullptr;
     rcc_token_details details;
-    const char* INPUT = "INTO \t ";
+    const char* INPUT = "IN2 \t ";
 
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
@@ -1047,11 +1047,11 @@ TEST(IN_identifier_fallback)
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
-    TEST_EXPECT(3 == details.end_index);
+    TEST_EXPECT(2 == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
     TEST_EXPECT(1 == details.end_line);
     TEST_EXPECT(1 == details.begin_col);
-    TEST_EXPECT(4 == details.end_col);
+    TEST_EXPECT(3 == details.end_col);
 
     /* clean up. */
     rcc_scanner_release(scanner);
@@ -1081,6 +1081,35 @@ TEST(INT_happy_path)
     TEST_EXPECT(1 == details.end_line);
     TEST_EXPECT(1 == details.begin_col);
     TEST_EXPECT(3 == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
+ * \brief Test that INT falls back to identifier.
+ */
+TEST(INT_identifier_fallback)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "INTO \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token_keyword_I_STAR(&details, scanner));
+
+    TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
+    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT(3 == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT(4 == details.end_col);
 
     /* clean up. */
     rcc_scanner_release(scanner);
