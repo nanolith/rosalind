@@ -1130,7 +1130,7 @@ TEST(MODULE_happy_path)
     /* attempt to read the MODULE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_MODULE
-            == rcc_scanner_read_token_keyword_MODULE(&details, scanner));
+            == rcc_scanner_read_token_keyword_M_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_MODULE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1159,7 +1159,7 @@ TEST(MODULE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_MODULE(&details, scanner));
+            == rcc_scanner_read_token_keyword_M_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
