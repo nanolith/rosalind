@@ -20,6 +20,9 @@ rcc_scanner_complete_token_keyword_SHL(
 static int
 rcc_scanner_complete_token_keyword_SHR(
     rcc_token_details* details, rcc_scanner* scanner);
+static int
+rcc_scanner_complete_token_keyword_STRING(
+    rcc_token_details* details, rcc_scanner* scanner);
 
 /**
  * \brief Attempt to complete keywords starting with an S.
@@ -32,6 +35,7 @@ rcc_scanner_complete_token_keyword_SHR(
  *      - RCC_TOKEN_TYPE_KEYWORD_SET
  *      - RCC_TOKEN_TYPE_KEYWORD_SHL
  *      - RCC_TOKEN_TYPE_KEYWORD_SHR
+ *      - RCC_TOKEN_TYPE_KEYWORD_STRING
  *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
@@ -46,6 +50,14 @@ rcc_scanner_complete_token_keyword_S_STAR(
     {
         rcc_scanner_next_character(scanner);
         retval = rcc_scanner_complete_token_keyword_SET(details, scanner);
+        goto done;
+    }
+
+    /* handle STRING keyword. */
+    if ('T' == *(scanner->input + 1))
+    {
+        rcc_scanner_next_character(scanner);
+        retval = rcc_scanner_complete_token_keyword_STRING(details, scanner);
         goto done;
     }
 
@@ -195,6 +207,73 @@ rcc_scanner_complete_token_keyword_SHR(
         retval =
             rcc_scanner_token_details_end(
                 details, scanner, RCC_TOKEN_TYPE_KEYWORD_SHR);
+        rcc_scanner_next_character(scanner);
+        goto done;
+    }
+
+identifier_fallback:
+    retval = rcc_scanner_complete_token_identifier(details, scanner, false);
+
+done:
+    return retval;
+}
+
+/**
+ * \brief Attempt to complete a STRING keyword.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_STRING
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+static int
+rcc_scanner_complete_token_keyword_STRING(
+    rcc_token_details* details, rcc_scanner* scanner)
+{
+    int retval;
+
+    /* the next letter must start with R to be a keyword. */
+    if ('R' != *(scanner->input + 1))
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with I to be a keyword. */
+    if ('I' != *(scanner->input + 1))
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with N to be a keyword. */
+    if ('N' != *(scanner->input + 1))
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with G to be a keyword. */
+    if ('G' != *(scanner->input + 1))
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* if the token continues with an alphanumeric, this is an identifier. */
+    if (isalnum(*(scanner->input + 1)))
+    {
+        goto identifier_fallback;
+    }
+    else
+    {
+        retval =
+            rcc_scanner_token_details_end(
+                details, scanner, RCC_TOKEN_TYPE_KEYWORD_STRING);
         rcc_scanner_next_character(scanner);
         goto done;
     }
