@@ -71,6 +71,7 @@ int rcc_scanner_token_details_end(
  *
  * \returns a token from the scanner.
  *      - RCC_TOKEN_TYPE_KEYWORD_AND
+ *      - RCC_TOKEN_TYPE_KEYWORD_ARRAY
  *      - RCC_TOKEN_TYPE_KEYWORD_AS
  *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
