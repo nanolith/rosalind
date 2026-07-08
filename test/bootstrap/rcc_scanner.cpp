@@ -1246,7 +1246,7 @@ TEST(NOT_happy_path)
     /* attempt to read the NOT token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_NOT
-            == rcc_scanner_read_token_keyword_NOT(&details, scanner));
+            == rcc_scanner_read_token_keyword_N_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_NOT == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1275,7 +1275,7 @@ TEST(NOT_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_NOT(&details, scanner));
+            == rcc_scanner_read_token_keyword_N_STAR(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
