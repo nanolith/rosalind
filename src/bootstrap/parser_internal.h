@@ -306,6 +306,23 @@ rcc_scanner_complete_token_keyword_R_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
+ * \brief Attempt to complete keywords starting with an S.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_SHL
+ *      - RCC_TOKEN_TYPE_KEYWORD_SHR
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_complete_token_keyword_S_STAR(
+    rcc_token_details* details, rcc_scanner* scanner);
+
+/**
  * \brief Attempt to complete keywords starting with a T.
  *
  * \param details           Pointer to the token structure to receive additional
