@@ -59,6 +59,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_INTERFACE,
     /** \brief INVARIANTS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_INVARIANTS,
+    /** \brief MOD keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_MOD,
     /** \brief MODULE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_MODULE,
     /** \brief NOT keyword. */
