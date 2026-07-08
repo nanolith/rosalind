@@ -21,6 +21,8 @@ enum rcc_token_type
 {
     /** \brief AND keyword. */
     RCC_TOKEN_TYPE_KEYWORD_AND = 1,
+    /** \brief ARRAY keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_ARRAY,
     /** \brief AS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_AS,
     /** \brief BEGIN keyword. */
