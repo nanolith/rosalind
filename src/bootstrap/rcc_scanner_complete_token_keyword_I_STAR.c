@@ -30,7 +30,7 @@ static int
 rcc_scanner_complete_token_keyword_IN_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 static int
-rcc_scanner_complete_token_keyword_INTERFACE(
+rcc_scanner_complete_token_keyword_INT_STAR(
     rcc_token_details* details, rcc_scanner* scanner);
 static int
 rcc_scanner_complete_token_keyword_INVARIANTS(
@@ -49,6 +49,7 @@ rcc_scanner_complete_token_keyword_INVARIANTS(
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPLEMENTS
  *      - RCC_TOKEN_TYPE_KEYWORD_IMPORT
  *      - RCC_TOKEN_TYPE_KEYWORD_IN
+ *      - RCC_TOKEN_TYPE_KEYWORD_INT
  *      - RCC_TOKEN_TYPE_KEYWORD_INTERFACE
  *      - RCC_TOKEN_TYPE_KEYWORD_INVARIANTS
  *      - RCC_TOKEN_TYPE_IDENTIFIER
@@ -387,7 +388,7 @@ rcc_scanner_complete_token_keyword_IN_STAR(
     if ('T' == *(scanner->input + 1))
     {
         rcc_scanner_next_character(scanner);
-        retval = rcc_scanner_complete_token_keyword_INTERFACE(details, scanner);
+        retval = rcc_scanner_complete_token_keyword_INT_STAR(details, scanner);
         goto done;
     }
 
@@ -430,14 +431,25 @@ done:
  *
  * \returns a token from the scanner.
  *      - RCC_TOKEN_TYPE_KEYWORD_INTERFACE
- *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_INT
+ *      - RCC_TOKEN_TYPE_INTERFACE
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
 static int
-rcc_scanner_complete_token_keyword_INTERFACE(
+rcc_scanner_complete_token_keyword_INT_STAR(
     rcc_token_details* details, rcc_scanner* scanner)
 {
     int retval;
+
+    /* A non-alpha / number means this is an INT. */
+    if (!isalnum(*(scanner->input + 1)))
+    {
+        retval =
+            rcc_scanner_token_details_end(
+                details, scanner, RCC_TOKEN_TYPE_KEYWORD_INT);
+        rcc_scanner_next_character(scanner);
+        goto done;
+    }
 
     /* the next letter must start with E to be a keyword. */
     if ('E' != *(scanner->input + 1))
