@@ -105,6 +105,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_TO,
     /** \brief TYPE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_TYPE,
+    /** \brief UINT keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_UINT,
     /** \brief VAR keyword. */
     RCC_TOKEN_TYPE_KEYWORD_VAR,
     /** \brief WHERE keyword. */
