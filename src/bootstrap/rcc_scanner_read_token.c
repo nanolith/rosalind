@@ -139,13 +139,13 @@ rcc_scanner_read_token(
             retval =
                 rcc_scanner_complete_token_keyword_W_STAR(details, scanner);
             goto done;
-
-        default:
-            retval =
-                rcc_scanner_token_details_end(
-                    details, scanner, RCC_TOKEN_TYPE_BAD_INPUT);
-            break;
     }
+
+    /* if nothing else matches, this is bad input. */
+    retval =
+        rcc_scanner_token_details_end(
+            details, scanner, RCC_TOKEN_TYPE_BAD_INPUT);
+    goto done;
 
 done:
     return retval;
