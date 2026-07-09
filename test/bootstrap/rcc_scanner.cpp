@@ -202,7 +202,7 @@ TEST(BEGIN_happy_path)
     /* attempt to read the BEGIN token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_BEGIN
-            == rcc_scanner_read_token_keyword_BEGIN(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_BEGIN == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -231,7 +231,7 @@ TEST(BEGIN_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_BEGIN(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
