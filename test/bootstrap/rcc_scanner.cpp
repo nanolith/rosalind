@@ -782,7 +782,7 @@ TEST(HIDE_happy_path)
     /* attempt to read the HIDE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_HIDE
-            == rcc_scanner_read_token_keyword_HIDE(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_HIDE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -811,7 +811,7 @@ TEST(HIDE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_HIDE(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
