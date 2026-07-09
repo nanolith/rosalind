@@ -2812,7 +2812,7 @@ TEST(XOR_happy_path)
     /* attempt to read the XOR token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_XOR
-            == rcc_scanner_read_token_keyword_XOR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_XOR == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2841,7 +2841,7 @@ TEST(XOR_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_XOR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
