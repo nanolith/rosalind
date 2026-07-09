@@ -195,8 +195,8 @@ rcc_scanner_release(rcc_scanner* scanner);
  * \param scanner           The scanner instance for this operation.
  *
  * \returns a token from the scanner.
- *      - RCC_SCANNER_TOKEN_TYPE_EOF at the end of input.
- *      - RCC_SCANNER_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad
+ *      - RCC_TOKEN_TYPE_EOF at the end of input.
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad
  *        input.
  *      - a value belonging to the \ref rcc_scanner_token_type enumeration.
  */
