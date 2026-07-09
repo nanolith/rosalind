@@ -46,6 +46,10 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_keyword_A_STAR(details, scanner);
             break;
 
+        case 'B':
+            retval = rcc_scanner_complete_token_keyword_BEGIN(details, scanner);
+            break;
+
         default:
             retval =
                 rcc_scanner_token_details_end(
