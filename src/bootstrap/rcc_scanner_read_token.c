@@ -7,6 +7,8 @@
  * See LICENSE.txt for copyright and license information.
  */
 
+#include <ctype.h>
+
 #include "parser_internal.h"
 
 /**
@@ -139,6 +141,13 @@ rcc_scanner_read_token(
             retval =
                 rcc_scanner_complete_token_keyword_W_STAR(details, scanner);
             goto done;
+    }
+
+    /* if the first character is alpha, then treat this as an identifier. */
+    if (isalpha(ch))
+    {
+        retval = rcc_scanner_complete_token_identifier(details, scanner, false);
+        goto done;
     }
 
     /* if nothing else matches, this is bad input. */
