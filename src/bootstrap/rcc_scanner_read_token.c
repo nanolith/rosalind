@@ -135,6 +135,11 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_keyword_XOR(details, scanner);
             goto done;
 
+        case 'W':
+            retval =
+                rcc_scanner_complete_token_keyword_W_STAR(details, scanner);
+            goto done;
+
         default:
             retval =
                 rcc_scanner_token_details_end(
