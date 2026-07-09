@@ -90,6 +90,11 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_keyword_M_STAR(details, scanner);
             goto done;
 
+        case 'N':
+            retval =
+                rcc_scanner_complete_token_keyword_N_STAR(details, scanner);
+            goto done;
+
         default:
             retval =
                 rcc_scanner_token_details_end(
