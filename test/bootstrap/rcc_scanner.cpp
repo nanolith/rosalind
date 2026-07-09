@@ -376,7 +376,7 @@ TEST(DIV_happy_path)
     /* attempt to read the DIV token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_DIV
-            == rcc_scanner_read_token_keyword_D_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_DIV == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -405,7 +405,7 @@ TEST(DIV_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_D_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -434,7 +434,7 @@ TEST(DO_happy_path)
     /* attempt to read the DO token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_DO
-            == rcc_scanner_read_token_keyword_D_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_DO == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -463,7 +463,7 @@ TEST(DO_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_D_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
