@@ -2580,7 +2580,7 @@ TEST(UINT_happy_path)
     /* attempt to read the UINT token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_UINT
-            == rcc_scanner_read_token_keyword_UINT(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_UINT == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2609,7 +2609,7 @@ TEST(UINT_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_UINT(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
