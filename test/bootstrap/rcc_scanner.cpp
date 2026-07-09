@@ -2638,7 +2638,7 @@ TEST(VAR_happy_path)
     /* attempt to read the VAR token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_VAR
-            == rcc_scanner_read_token_keyword_VAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_VAR == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2667,7 +2667,7 @@ TEST(VAR_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_VAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
