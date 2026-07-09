@@ -157,8 +157,15 @@ struct rcc_token_details
     size_t end_col;
     union
     {
-        intmax_t intv;
-        uintmax_t uintv;
+        struct
+        {
+            bool is_unsigned;
+            union
+            {
+                intmax_t signedv;
+                uintmax_t unsignedv;
+            } val;
+        } integerv;
         bool booleanv;
         long double realv;
     } primitive_val;
