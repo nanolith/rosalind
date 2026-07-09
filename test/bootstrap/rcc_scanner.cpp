@@ -260,7 +260,7 @@ TEST(CASE_happy_path)
     /* attempt to read the CASE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_CASE
-            == rcc_scanner_read_token_keyword_C_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_CASE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -289,7 +289,7 @@ TEST(CASE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_C_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -318,7 +318,7 @@ TEST(CONST_happy_path)
     /* attempt to read the CONST token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_CONST
-            == rcc_scanner_read_token_keyword_C_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_CONST == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -347,7 +347,7 @@ TEST(CONST_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_C_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
