@@ -123,6 +123,8 @@ enum rcc_token_type
 
     /** \brief identifier token. */
     RCC_TOKEN_TYPE_IDENTIFIER,
+    /** \brief plus token. */
+    RCC_TOKEN_TYPE_PLUS,
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
