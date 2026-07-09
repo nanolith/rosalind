@@ -2696,7 +2696,7 @@ TEST(WHERE_happy_path)
     /* attempt to read the WHERE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_WHERE
-            == rcc_scanner_read_token_keyword_W_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_WHERE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2725,7 +2725,7 @@ TEST(WHERE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_W_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2754,7 +2754,7 @@ TEST(WHILE_happy_path)
     /* attempt to read the WHILE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_WHILE
-            == rcc_scanner_read_token_keyword_W_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_WHILE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2783,7 +2783,7 @@ TEST(WHILE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_W_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
