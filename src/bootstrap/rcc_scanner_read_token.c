@@ -120,6 +120,11 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_keyword_T_STAR(details, scanner);
             goto done;
 
+        case 'U':
+            retval =
+                rcc_scanner_complete_token_keyword_UINT(details, scanner);
+            goto done;
+
         default:
             retval =
                 rcc_scanner_token_details_end(
