@@ -2406,7 +2406,7 @@ TEST(THEN_happy_path)
     /* attempt to read the THEN token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_THEN
-            == rcc_scanner_read_token_keyword_T_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_THEN == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2435,7 +2435,7 @@ TEST(THEN_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_T_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2464,7 +2464,7 @@ TEST(TO_happy_path)
     /* attempt to read the TO token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_TO
-            == rcc_scanner_read_token_keyword_T_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_TO == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2493,7 +2493,7 @@ TEST(TO_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_T_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2522,7 +2522,7 @@ TEST(TYPE_happy_path)
     /* attempt to read the TYPE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_TYPE
-            == rcc_scanner_read_token_keyword_T_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_TYPE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2551,7 +2551,7 @@ TEST(TYPE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_T_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
