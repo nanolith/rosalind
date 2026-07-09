@@ -10,7 +10,9 @@
 
 #include <rosalind_bootstrap/error_codes.h>
 #include <rosalind_bootstrap/function_decl.h>
+#include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
@@ -153,6 +155,13 @@ struct rcc_token_details
     size_t end_line;
     size_t begin_col;
     size_t end_col;
+    union
+    {
+        intmax_t intv;
+        uintmax_t uintv;
+        bool booleanv;
+        long double realv;
+    } primitive_val;
 };
 
 /**
