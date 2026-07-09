@@ -1710,7 +1710,7 @@ TEST(POINTER_happy_path)
     /* attempt to read the POINTER token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_POINTER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_POINTER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1739,7 +1739,7 @@ TEST(POINTER_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1768,7 +1768,7 @@ TEST(POSTCONDITIONS_happy_path)
     /* attempt to read the POSTCONDITIONS token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_POSTCONDITIONS
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_POSTCONDITIONS == details.type);
     TEST_EXPECT( 0 == details.begin_index);
@@ -1797,7 +1797,7 @@ TEST(POSTCONDITIONS_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT( 0 == details.begin_index);
@@ -1826,7 +1826,7 @@ TEST(PRECONDITIONS_happy_path)
     /* attempt to read the PRECONDITIONS token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_PRECONDITIONS
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_PRECONDITIONS == details.type);
     TEST_EXPECT( 0 == details.begin_index);
@@ -1855,7 +1855,7 @@ TEST(PRECONDITIONS_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT( 0 == details.begin_index);
@@ -1884,7 +1884,7 @@ TEST(PRIVATE_happy_path)
     /* attempt to read the PRIVATE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_PRIVATE
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_PRIVATE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1913,7 +1913,7 @@ TEST(PRIVATE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1942,7 +1942,7 @@ TEST(PROCEDURE_happy_path)
     /* attempt to read the PROCEDURE token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_PROCEDURE
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_PROCEDURE == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -1971,7 +1971,7 @@ TEST(PROCEDURE_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT( 0 == details.begin_index);
@@ -2000,7 +2000,7 @@ TEST(PUBLIC_happy_path)
     /* attempt to read the PUBLIC token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_KEYWORD_PUBLIC
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_KEYWORD_PUBLIC == details.type);
     TEST_EXPECT(0 == details.begin_index);
@@ -2029,7 +2029,7 @@ TEST(PUBLIC_identifier_fallback)
     /* attempt to read an identifier. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_IDENTIFIER
-            == rcc_scanner_read_token_keyword_P_STAR(&details, scanner));
+            == rcc_scanner_read_token(&details, scanner));
 
     TEST_EXPECT(RCC_TOKEN_TYPE_IDENTIFIER == details.type);
     TEST_EXPECT(0 == details.begin_index);
