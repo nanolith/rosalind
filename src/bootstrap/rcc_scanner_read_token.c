@@ -75,6 +75,11 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_keyword_GOTO(details, scanner);
             goto done;
 
+        case 'H':
+            retval =
+                rcc_scanner_complete_token_keyword_HIDE(details, scanner);
+            goto done;
+
         default:
             retval =
                 rcc_scanner_token_details_end(
