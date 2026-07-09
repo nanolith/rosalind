@@ -19,8 +19,11 @@ extern "C" {
 
 enum rcc_token_type
 {
+    /** \brief EOF. */
+    RCC_TOKEN_TYPE_EOF = 0,
+
     /** \brief AND keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_AND = 1,
+    RCC_TOKEN_TYPE_KEYWORD_AND,
     /** \brief ARRAY keyword. */
     RCC_TOKEN_TYPE_KEYWORD_ARRAY,
     /** \brief AS keyword. */
