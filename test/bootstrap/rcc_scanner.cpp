@@ -2951,3 +2951,35 @@ TEST(large_number)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Out-of-range error.
+ */
+TEST(too_large_number)
+{
+    const uintmax_t maxval = UINTMAX_MAX;
+    char INPUT[1024];
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+
+    sprintf(INPUT, "%ju999", maxval);
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_BAD_INPUT
+            == rcc_scanner_read_token(&details, scanner));
+
+    TEST_ASSERT(RCC_TOKEN_TYPE_BAD_INPUT == details.type);
+    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT((strlen(INPUT)-1) == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT(strlen(INPUT) == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
