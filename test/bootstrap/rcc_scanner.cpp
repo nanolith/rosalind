@@ -2916,3 +2916,38 @@ TEST(simple_number)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can scan a large number.
+ */
+TEST(large_number)
+{
+    const uintmax_t maxval = UINTMAX_MAX;
+    char INPUT[1024];
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+
+    sprintf(INPUT, "%ju", maxval);
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_EXPECT(0 == details.begin_index);
+    TEST_EXPECT((strlen(INPUT)-1) == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(1 == details.begin_col);
+    TEST_EXPECT(strlen(INPUT) == details.end_col);
+
+    TEST_EXPECT(details.primitive_val.integerv.is_unsigned);
+    TEST_EXPECT(maxval == details.primitive_val.integerv.val.unsignedv);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
