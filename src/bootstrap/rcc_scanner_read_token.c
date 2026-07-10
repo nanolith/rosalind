@@ -150,6 +150,13 @@ rcc_scanner_read_token(
         goto done;
     }
 
+    /* if the first character is a number, then treat this as a number. */
+    if (isdigit(ch))
+    {
+        retval = rcc_scanner_complete_token_number(details, scanner);
+        goto done;
+    }
+
     /* if nothing else matches, this is bad input. */
     retval =
         rcc_scanner_token_details_end(
