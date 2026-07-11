@@ -127,6 +127,10 @@ static bool is_sigil(int ch, int* base)
             *base = 16;
             return true;
 
+        case '%':
+            *base = 2;
+            return true;
+
         case '&':
             *base = 8;
             return true;
