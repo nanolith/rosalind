@@ -137,6 +137,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_STAR,
     /** \brief slash token. */
     RCC_TOKEN_TYPE_SLASH,
+    /** \brief equal token. */
+    RCC_TOKEN_TYPE_EQUAL,
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
