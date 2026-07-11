@@ -43,6 +43,11 @@ rcc_scanner_read_token(
                     details, scanner, RCC_TOKEN_TYPE_EOF);
             goto done;
 
+        case '-':
+            retval =
+                rcc_scanner_complete_token_number(details, scanner);
+            goto done;
+
         case 'A':
             retval =
                 rcc_scanner_complete_token_keyword_A_STAR(details, scanner);
