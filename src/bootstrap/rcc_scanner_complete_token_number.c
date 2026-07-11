@@ -14,6 +14,9 @@
 
 #include "parser_internal.h"
 
+/* forward decls. */
+void copy_digits(char* output, const char* input, ptrdiff_t* length);
+
 /**
  * \brief Attempt to complete a number token.
  *
@@ -49,7 +52,7 @@ rcc_scanner_complete_token_number(
     }
 
     /* read all characters. */
-    while (isdigit(*(scanner->input + 1)))
+    while (isalnum(*(scanner->input + 1)))
     {
         rcc_scanner_next_character(scanner);
     }
@@ -71,7 +74,7 @@ rcc_scanner_complete_token_number(
 
     /* copy this data to an input buffer. */
     memset(input, 0, sizeof(input));
-    memcpy(input, scan_start, length);
+    copy_digits(input, scan_start, &length);
 
     /* attempt to convert the number to a signed integer. */
     errno = 0;
@@ -99,4 +102,36 @@ rcc_scanner_complete_token_number(
 
 done:
     return retval;
+}
+
+/**
+ * \brief Copy digits from input to output, skipping any sigils.
+ *
+ * \param output                Pointer to the output buffer, to which digitsare
+ *                              copied.
+ * \param input                 Pointer to the input buffer, from which digits
+ *                              are copied.
+ * \param length                On input, the length of the input buffer. On
+ *                              output, the length of the copied data.
+ */
+void copy_digits(char* output, const char* input, ptrdiff_t* length)
+{
+    ptrdiff_t outidx = 0;
+    ptrdiff_t i = 0;
+
+    /* handle unary minus. */
+    if (i < *length && '-' == input[i])
+    {
+        output[outidx++] = input[i++];
+    }
+
+    for (; i < *length; ++i)
+    {
+        if (isalnum(input[i]))
+        {
+            output[outidx++] = input[i];
+        }
+    }
+
+    *length = outidx;
 }
