@@ -139,6 +139,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_SLASH,
     /** \brief equal token. */
     RCC_TOKEN_TYPE_EQUAL,
+    /** \brief less-than token. */
+    RCC_TOKEN_TYPE_LESS_THAN,
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
