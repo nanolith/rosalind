@@ -45,7 +45,7 @@ rcc_scanner_read_token(
 
         case '-':
             retval =
-                rcc_scanner_complete_token_number(details, scanner);
+                rcc_scanner_complete_token_number(details, scanner, 10);
             goto done;
 
         case 'A':
@@ -158,7 +158,7 @@ rcc_scanner_read_token(
     /* if the first character is a number, then treat this as a number. */
     if (isdigit(ch))
     {
-        retval = rcc_scanner_complete_token_number(details, scanner);
+        retval = rcc_scanner_complete_token_number(details, scanner, 10);
         goto done;
     }
 

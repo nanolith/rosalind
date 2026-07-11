@@ -433,6 +433,7 @@ rcc_scanner_complete_token_identifier(
  * \param details           Pointer to the token structure to receive additional
  *                          details.
  * \param scanner           The scanner instance for this operation.
+ * \param base              The base for this number.
  *
  * \returns a token from the scanner.
  *      - RCC_TOKEN_TYPE_NUMBER
@@ -441,7 +442,7 @@ rcc_scanner_complete_token_identifier(
  */
 int FN_DECL_MUST_CHECK
 rcc_scanner_complete_token_number(
-    rcc_token_details* details, rcc_scanner* scanner);
+    rcc_token_details* details, rcc_scanner* scanner, int base);
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
