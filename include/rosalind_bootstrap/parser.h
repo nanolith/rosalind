@@ -145,6 +145,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_GREATER_THAN,
     /** \brief less-than-equal token. */
     RCC_TOKEN_TYPE_LESS_THAN_EQUAL,
+    /** \brief greater-than-equal token. */
+    RCC_TOKEN_TYPE_GREATER_THAN_EQUAL,
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
