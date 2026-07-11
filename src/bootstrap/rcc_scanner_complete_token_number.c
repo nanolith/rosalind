@@ -33,6 +33,20 @@ rcc_scanner_complete_token_number(
     int retval;
     char input[30];
 
+    /* if the current token is minus... */
+    if ('-' == scanner->input[0])
+    {
+        /* ...and the next token is NOT a digit... */
+        if (!isdigit(*(scanner->input + 1)))
+        {
+            /* This is a minus token. */
+            retval =
+                rcc_scanner_token_details_end(
+                    details, scanner, RCC_TOKEN_TYPE_MINUS);
+            goto done;
+        }
+    }
+
     /* read all characters. */
     while (isdigit(*(scanner->input + 1)))
     {
