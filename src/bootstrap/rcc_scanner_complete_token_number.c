@@ -15,7 +15,8 @@
 #include "parser_internal.h"
 
 /* forward decls. */
-void copy_digits(char* output, const char* input, ptrdiff_t* length);
+static bool is_sigil(int ch, int* base);
+static void copy_digits(char* output, const char* input, ptrdiff_t* length);
 
 /**
  * \brief Attempt to complete a number token.
@@ -40,8 +41,14 @@ rcc_scanner_complete_token_number(
     /* if the current token is minus... */
     if ('-' == scanner->input[0])
     {
+        /* ...and the next token is a sigil... */
+        if (is_sigil(*(scanner->input + 1), &base))
+        {
+            /* the base is updated and we continue... */
+            rcc_scanner_next_character(scanner);
+        }
         /* ...and the next token is NOT a digit... */
-        if (!isdigit(*(scanner->input + 1)))
+        else if (!isdigit(*(scanner->input + 1)))
         {
             /* This is a minus token. */
             retval =
@@ -105,6 +112,27 @@ done:
 }
 
 /**
+ * \brief Return true if the given character is a sigil, and set the base.
+ *
+ * \param ch            The character to check.
+ * \param base          Pointer to the base to update on true.
+ *
+ * \returns true if the character is a sigil and false otherwise.
+ */
+static bool is_sigil(int ch, int* base)
+{
+    switch (ch)
+    {
+        case '$':
+            *base = 16;
+            return true;
+
+        default:
+            return false;
+    }
+}
+
+/**
  * \brief Copy digits from input to output, skipping any sigils.
  *
  * \param output                Pointer to the output buffer, to which digitsare
@@ -114,7 +142,7 @@ done:
  * \param length                On input, the length of the input buffer. On
  *                              output, the length of the copied data.
  */
-void copy_digits(char* output, const char* input, ptrdiff_t* length)
+static void copy_digits(char* output, const char* input, ptrdiff_t* length)
 {
     ptrdiff_t outidx = 0;
     ptrdiff_t i = 0;
