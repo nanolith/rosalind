@@ -3110,3 +3110,36 @@ TEST(hex_number_negative)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can scan an octal number.
+ */
+TEST(octal_number_happy_path)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "  \t &31 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_EXPECT(4 == details.begin_index);
+    TEST_EXPECT(6 == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(5 == details.begin_col);
+    TEST_EXPECT(7 == details.end_col);
+
+
+    TEST_EXPECT(!details.primitive_val.integerv.is_unsigned);
+    TEST_EXPECT(031 == details.primitive_val.integerv.val.signedv);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
