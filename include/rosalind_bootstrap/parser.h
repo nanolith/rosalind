@@ -151,6 +151,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_NOT_EQUAL,
     /** \brief assignment token. */
     RCC_TOKEN_TYPE_ASSIGNMENT,
+    /** \brief colon token. */
+    RCC_TOKEN_TYPE_COLON,
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
