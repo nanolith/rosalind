@@ -3157,6 +3157,37 @@ TEST(RECORD_identifier_fallback)
 }
 
 /**
+ * \brief Test that RECORD advances the scanner.
+ */
+TEST(RECORD_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "RECORD RECORD2 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a RECORD keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_RECORD
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a REVEAL token.
  */
 TEST(REVEAL_happy_path)
