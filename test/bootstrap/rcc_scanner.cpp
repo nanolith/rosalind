@@ -4136,6 +4136,37 @@ TEST(WHERE_identifier_fallback)
 }
 
 /**
+ * \brief Test that WHERE advances the scanner.
+ */
+TEST(WHERE_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "WHERE WHERE2 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a WHERE keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_WHERE
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a WHILE token.
  */
 TEST(WHILE_happy_path)
