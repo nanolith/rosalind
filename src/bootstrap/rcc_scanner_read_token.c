@@ -11,6 +11,9 @@
 
 #include "parser_internal.h"
 
+/* forward decls. */
+static int accept(rcc_token_details* details, rcc_scanner* scanner, int token);
+
 /**
  * \brief Read a token from the scanner instance, populating the provided token
  * structure with details.
@@ -38,9 +41,7 @@ rcc_scanner_read_token(
     switch (ch)
     {
         case 0:
-            retval =
-                rcc_scanner_token_details_end(
-                    details, scanner, RCC_TOKEN_TYPE_EOF);
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_EOF);
             goto done;
 
         case '$':
@@ -59,15 +60,11 @@ rcc_scanner_read_token(
             goto done;
 
         case '*':
-            retval =
-                rcc_scanner_token_details_end(
-                    details, scanner, RCC_TOKEN_TYPE_STAR);
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_STAR);
             goto done;
 
         case '+':
-            retval =
-                rcc_scanner_token_details_end(
-                    details, scanner, RCC_TOKEN_TYPE_PLUS);
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_PLUS);
             goto done;
 
         case '-':
@@ -76,9 +73,7 @@ rcc_scanner_read_token(
             goto done;
 
         case '/':
-            retval =
-                rcc_scanner_token_details_end(
-                    details, scanner, RCC_TOKEN_TYPE_SLASH);
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_SLASH);
             goto done;
 
         case ':':
@@ -90,9 +85,7 @@ rcc_scanner_read_token(
             goto done;
 
         case '=':
-            retval =
-                rcc_scanner_token_details_end(
-                    details, scanner, RCC_TOKEN_TYPE_EQUAL);
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_EQUAL);
             goto done;
 
         case '>':
@@ -220,5 +213,24 @@ rcc_scanner_read_token(
     goto done;
 
 done:
+    return retval;
+}
+
+/**
+ * \brief Accept a token, and increment input to the next token.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ * \param token             The token accepted.
+ *
+ * \returns the accepted token for this scanner.
+ */
+static int accept(rcc_token_details* details, rcc_scanner* scanner, int token)
+{
+    int retval = rcc_scanner_token_details_end(details, scanner, token);
+
+    rcc_scanner_next_character(scanner);
+
     return retval;
 }
