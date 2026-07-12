@@ -50,6 +50,17 @@ rcc_scanner_complete_token_relational(
                 goto done;
         }
     }
+    else
+    {
+        switch (scanner->input[0])
+        {
+            case '<':
+                retval =
+                    rcc_scanner_token_details_end(
+                        details, scanner, RCC_TOKEN_TYPE_LESS_THAN);
+                goto done;
+        }
+    }
 
     /* if nothing else matches, this is bad input. */
     retval =
