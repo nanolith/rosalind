@@ -5123,6 +5123,37 @@ TEST(less_than_happy_path)
 }
 
 /**
+ * \brief Test that a less-than token advances the scanner.
+ */
+TEST(less_than_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "< 123 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a less-than token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_LESS_THAN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read a number token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can scan a not-equal token.
  */
 TEST(not_equal_happy_path)
