@@ -15,7 +15,7 @@
  */
 void rcc_scanner_next_character(rcc_scanner* scanner)
 {
-    if ('\n' == *(scanner->input))
+    if ('\n' == scanner->input[0])
     {
         scanner->col = 1;
         scanner->line += 1;
