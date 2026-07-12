@@ -754,6 +754,37 @@ TEST(ELSE_identifier_fallback)
 }
 
 /**
+ * \brief Test that ELSE advances the scanner.
+ */
+TEST(ELSE_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "ELSE ELSEIF \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read an ELSE keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_ELSE
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read an END token.
  */
 TEST(END_happy_path)
