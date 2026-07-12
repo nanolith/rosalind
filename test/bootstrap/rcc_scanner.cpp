@@ -3400,7 +3400,7 @@ TEST(less_than_happy_path)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read a less-than-equal. */
+    /* attempt to read a less-than. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_LESS_THAN
             == rcc_scanner_read_token(&details, scanner));
@@ -3429,7 +3429,7 @@ TEST(not_equal_happy_path)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read a less-than-equal. */
+    /* attempt to read a not-equal. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NOT_EQUAL
             == rcc_scanner_read_token(&details, scanner));
