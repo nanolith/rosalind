@@ -4225,6 +4225,37 @@ TEST(WHILE_identifier_fallback)
 }
 
 /**
+ * \brief Test that WHILE advances the scanner.
+ */
+TEST(WHILE_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "WHILE WHILE2 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a WHILE keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_WHILE
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a XOR token.
  */
 TEST(XOR_happy_path)
