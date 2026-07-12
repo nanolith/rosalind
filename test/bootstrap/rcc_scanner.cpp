@@ -309,6 +309,37 @@ TEST(BEGIN_identifier_fallback)
 }
 
 /**
+ * \brief Test that BEGIN advances the scanner.
+ */
+TEST(BEGIN_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "BEGIN BEGINA \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a BEGIN keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_BEGIN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a CASE token.
  */
 TEST(CASE_happy_path)
