@@ -26,10 +26,34 @@ rcc_scanner_skip_whitespace(rcc_scanner* scanner)
 {
     int retval;
 
-    while (scanner->input[0] != 0 && isspace(scanner->input[0]))
-    {
-        rcc_scanner_next_character(scanner);
-    }
+    do {
+        while (0 != scanner->input[0] && isspace(scanner->input[0]))
+        {
+            rcc_scanner_next_character(scanner);
+        }
+
+        if ('{' != scanner->input[0])
+        {
+            break;
+        }
+        else
+        {
+            while (0 != scanner->input[0] && '}' != scanner->input[0])
+            {
+                rcc_scanner_next_character(scanner);
+            }
+
+            if (0 == scanner->input[0])
+            {
+                /* on EOF, return an invalid character. */
+                return (unsigned char)'{';
+            }
+            else if ('}' == scanner->input[0])
+            {
+                rcc_scanner_next_character(scanner);
+            }
+        }
+    } while (0 != scanner->input[0]);
 
     retval = (unsigned char)scanner->input[0];
 
