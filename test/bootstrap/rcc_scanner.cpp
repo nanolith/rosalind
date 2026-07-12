@@ -4565,6 +4565,37 @@ TEST(negative_number_scan_minus_token_fallback)
 }
 
 /**
+ * \brief Test that a minus token advances the scanner.
+ */
+TEST(minus_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "- 123 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a minus token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_MINUS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read a number token. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can scan a hex number.
  */
 TEST(hex_number_happy_path)
