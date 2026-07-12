@@ -3246,6 +3246,37 @@ TEST(REVEAL_identifier_fallback)
 }
 
 /**
+ * \brief Test that REVEAL advances the scanner.
+ */
+TEST(REVEAL_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "REVEAL REVEAL2 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a REVEAL keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_REVEAL
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a SET token.
  */
 TEST(SET_happy_path)
