@@ -42,13 +42,13 @@ rcc_scanner_complete_token_number(
     if ('-' == scanner->input[0])
     {
         /* ...and the next token is a sigil... */
-        if (is_sigil(*(scanner->input + 1), &base))
+        if (is_sigil(scanner->input[1], &base))
         {
             /* the base is updated and we continue... */
             rcc_scanner_next_character(scanner);
         }
         /* ...and the next token is NOT a digit... */
-        else if (!isdigit(*(scanner->input + 1)))
+        else if (!isdigit(scanner->input[1]))
         {
             /* This is a minus token. */
             retval =
@@ -59,7 +59,7 @@ rcc_scanner_complete_token_number(
     }
 
     /* read all characters. */
-    while (isalnum(*(scanner->input + 1)))
+    while (isalnum(scanner->input[1]))
     {
         rcc_scanner_next_character(scanner);
     }
