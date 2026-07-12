@@ -2897,7 +2897,7 @@ TEST(simple_number)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -2932,7 +2932,7 @@ TEST(large_number)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -2967,7 +2967,7 @@ TEST(too_large_number)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number fails. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_BAD_INPUT
             == rcc_scanner_read_token(&details, scanner));
@@ -2996,7 +2996,7 @@ TEST(negative_number)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -3028,7 +3028,7 @@ TEST(negative_number_scan_minus_token_fallback)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a minus token. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_MINUS
             == rcc_scanner_read_token(&details, scanner));
@@ -3057,7 +3057,7 @@ TEST(hex_number_happy_path)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -3090,7 +3090,7 @@ TEST(hex_number_negative)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -3123,7 +3123,7 @@ TEST(octal_number_happy_path)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -3156,7 +3156,7 @@ TEST(octal_number_negative)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -3189,7 +3189,7 @@ TEST(binary_number_happy_path)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
@@ -3222,7 +3222,7 @@ TEST(binary_number_negative)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* attempt to read an identifier. */
+    /* attempt to read a number. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
