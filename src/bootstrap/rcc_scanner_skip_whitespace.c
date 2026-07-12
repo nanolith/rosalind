@@ -26,12 +26,12 @@ rcc_scanner_skip_whitespace(rcc_scanner* scanner)
 {
     int retval;
 
-    while (*(scanner->input) != 0 && isspace(*(scanner->input)))
+    while (scanner->input[0] != 0 && isspace(scanner->input[0]))
     {
         rcc_scanner_next_character(scanner);
     }
 
-    retval = (unsigned char)*(scanner->input);
+    retval = (unsigned char)scanner->input[0];
 
     return retval;
 }
