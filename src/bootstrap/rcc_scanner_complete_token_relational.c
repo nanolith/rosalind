@@ -42,6 +42,13 @@ rcc_scanner_complete_token_relational(
     {
         switch (scanner->input[0])
         {
+            case ':':
+                rcc_scanner_next_character(scanner);
+                retval =
+                    rcc_scanner_token_details_end(
+                        details, scanner, RCC_TOKEN_TYPE_ASSIGNMENT);
+                goto done;
+
             case '<':
                 rcc_scanner_next_character(scanner);
                 retval =
