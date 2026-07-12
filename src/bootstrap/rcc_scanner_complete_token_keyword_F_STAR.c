@@ -38,7 +38,7 @@ rcc_scanner_complete_token_keyword_F_STAR(
     int retval;
 
     /* handle FOR keyword. */
-    if ('O' == *(scanner->input + 1))
+    if ('O' == scanner->input[1])
     {
         rcc_scanner_next_character(scanner);
         retval = rcc_scanner_complete_token_keyword_FOR(details, scanner);
@@ -46,7 +46,7 @@ rcc_scanner_complete_token_keyword_F_STAR(
     }
 
     /* handle FUNCTION keyword. */
-    if ('U' == *(scanner->input + 1))
+    if ('U' == scanner->input[1])
     {
         rcc_scanner_next_character(scanner);
         retval = rcc_scanner_complete_token_keyword_FUNCTION_(details, scanner);
@@ -82,14 +82,14 @@ rcc_scanner_complete_token_keyword_FOR(
     int retval;
 
     /* the next letter must start with R to be a keyword. */
-    if ('R' != *(scanner->input + 1))
+    if ('R' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* if the token continues with an alphanumeric, this is an identifier. */
-    if (isalnum(*(scanner->input + 1)))
+    if (isalnum(scanner->input[1]))
     {
         goto identifier_fallback;
     }
@@ -128,49 +128,49 @@ rcc_scanner_complete_token_keyword_FUNCTION_(
     int retval;
 
     /* the next letter must start with N to be a keyword. */
-    if ('N' != *(scanner->input + 1))
+    if ('N' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with C to be a keyword. */
-    if ('C' != *(scanner->input + 1))
+    if ('C' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with T to be a keyword. */
-    if ('T' != *(scanner->input + 1))
+    if ('T' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with I to be a keyword. */
-    if ('I' != *(scanner->input + 1))
+    if ('I' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with O to be a keyword. */
-    if ('O' != *(scanner->input + 1))
+    if ('O' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with N to be a keyword. */
-    if ('N' != *(scanner->input + 1))
+    if ('N' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* if the token continues with an alphanumeric, this is an identifier. */
-    if (isalnum(*(scanner->input + 1)))
+    if (isalnum(scanner->input[1]))
     {
         goto identifier_fallback;
     }
