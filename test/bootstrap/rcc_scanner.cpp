@@ -3503,3 +3503,32 @@ TEST(greater_than_happy_path)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can scan an assignment token.
+ */
+TEST(assignment_happy_path)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "  \t := \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* attempt to read an assignment. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_ASSIGNMENT
+            == rcc_scanner_read_token(&details, scanner));
+
+    TEST_ASSERT(RCC_TOKEN_TYPE_ASSIGNMENT == details.type);
+    TEST_EXPECT(4 == details.begin_index);
+    TEST_EXPECT(5 == details.end_index);
+    TEST_EXPECT(1 == details.begin_line);
+    TEST_EXPECT(1 == details.end_line);
+    TEST_EXPECT(5 == details.begin_col);
+    TEST_EXPECT(6 == details.end_col);
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
