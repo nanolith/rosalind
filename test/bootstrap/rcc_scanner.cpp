@@ -2089,6 +2089,37 @@ TEST(MODULE_identifier_fallback)
 }
 
 /**
+ * \brief Test that MODULE advances the scanner.
+ */
+TEST(MODULE_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "MODULE MODULES \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a MODULE keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_MODULE
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a NIL token.
  */
 TEST(NIL_happy_path)
