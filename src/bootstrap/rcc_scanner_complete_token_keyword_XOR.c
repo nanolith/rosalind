@@ -28,19 +28,19 @@ rcc_scanner_complete_token_keyword_XOR(
 {
     int retval;
 
-    if ('O' != *(scanner->input + 1))
+    if ('O' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
-    if ('R' != *(scanner->input + 1))
+    if ('R' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
-    if (isalnum(*(scanner->input + 1)))
+    if (isalnum(scanner->input[1]))
     {
         goto identifier_fallback;
     }
