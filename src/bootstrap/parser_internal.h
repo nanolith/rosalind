@@ -444,6 +444,27 @@ int FN_DECL_MUST_CHECK
 rcc_scanner_complete_token_number(
     rcc_token_details* details, rcc_scanner* scanner, int base);
 
+/**
+ * \brief Attempt to complete a relational token.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_ASSIGNMENT
+ *      - RCC_TOKEN_TYPE_COLON
+ *      - RCC_TOKEN_TYPE_GREATER_THAN
+ *      - RCC_TOKEN_TYPE_GREATER_THAN_EQUAL
+ *      - RCC_TOKEN_TYPE_LESS_THAN
+ *      - RCC_TOKEN_TYPE_LESS_THAN_EQUAL
+ *      - RCC_TOKEN_TYPE_NOT_EQUAL
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+int FN_DECL_MUST_CHECK
+rcc_scanner_complete_token_relational(
+    rcc_token_details* details, rcc_scanner* scanner);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
