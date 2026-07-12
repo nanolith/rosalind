@@ -107,5 +107,10 @@ rcc_scanner_complete_token_relational(
     goto done;
 
 done:
+    if (RCC_TOKEN_TYPE_BAD_INPUT != retval)
+    {
+        rcc_scanner_next_character(scanner);
+    }
+
     return retval;
 }
