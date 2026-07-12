@@ -81,6 +81,12 @@ rcc_scanner_read_token(
                     details, scanner, RCC_TOKEN_TYPE_SLASH);
             goto done;
 
+        case '=':
+            retval =
+                rcc_scanner_token_details_end(
+                    details, scanner, RCC_TOKEN_TYPE_EQUAL);
+            goto done;
+
         case 'A':
             retval =
                 rcc_scanner_complete_token_keyword_A_STAR(details, scanner);
