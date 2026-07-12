@@ -38,14 +38,14 @@ rcc_scanner_complete_token_keyword_W_STAR(
     int retval;
 
     /* the next letter must start with H to be a keyword. */
-    if ('H' != *(scanner->input + 1))
+    if ('H' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* handle WHERE token. */
-    if ('E' == *(scanner->input + 1))
+    if ('E' == scanner->input[1])
     {
         rcc_scanner_next_character(scanner);
         retval = rcc_scanner_complete_token_keyword_WHERE(details, scanner);
@@ -53,7 +53,7 @@ rcc_scanner_complete_token_keyword_W_STAR(
     }
 
     /* handle WHILE token. */
-    if ('I' == *(scanner->input + 1))
+    if ('I' == scanner->input[1])
     {
         rcc_scanner_next_character(scanner);
         retval = rcc_scanner_complete_token_keyword_WHILE_(details, scanner);
@@ -92,21 +92,21 @@ rcc_scanner_complete_token_keyword_WHERE(
     int retval;
 
     /* the next letter must start with R to be a keyword. */
-    if ('R' != *(scanner->input + 1))
+    if ('R' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with E to be a keyword. */
-    if ('E' != *(scanner->input + 1))
+    if ('E' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* if the token continues with an alphanumeric, this is an identifier. */
-    if (isalnum(*(scanner->input + 1)))
+    if (isalnum(scanner->input[1]))
     {
         goto identifier_fallback;
     }
@@ -145,21 +145,21 @@ rcc_scanner_complete_token_keyword_WHILE_(
     int retval;
 
     /* the next letter must start with L to be a keyword. */
-    if ('L' != *(scanner->input + 1))
+    if ('L' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* the next letter must start with E to be a keyword. */
-    if ('E' != *(scanner->input + 1))
+    if ('E' != scanner->input[1])
     {
         goto identifier_fallback;
     }
     rcc_scanner_next_character(scanner);
 
     /* if the token continues with an alphanumeric, this is an identifier. */
-    if (isalnum(*(scanner->input + 1)))
+    if (isalnum(scanner->input[1]))
     {
         goto identifier_fallback;
     }
