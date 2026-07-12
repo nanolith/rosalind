@@ -31,7 +31,7 @@ rcc_scanner_complete_token_identifier(
 {
     int retval, peek;
 
-    peek = *(scanner->input + 1);
+    peek = scanner->input[1];
 
     if (read_start)
     {
@@ -44,7 +44,7 @@ rcc_scanner_complete_token_identifier(
     while (isalnum(peek) || '_' == peek)
     {
         rcc_scanner_next_character(scanner);
-        peek = *(scanner->input + 1);
+        peek = scanner->input[1];
     }
 
     retval =
