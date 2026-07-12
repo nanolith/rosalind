@@ -58,6 +58,12 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_number(details, scanner, 8);
             goto done;
 
+        case '+':
+            retval =
+                rcc_scanner_token_details_end(
+                    details, scanner, RCC_TOKEN_TYPE_PLUS);
+            goto done;
+
         case '-':
             retval =
                 rcc_scanner_complete_token_number(details, scanner, 10);
