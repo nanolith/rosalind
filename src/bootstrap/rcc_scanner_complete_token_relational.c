@@ -78,6 +78,12 @@ rcc_scanner_complete_token_relational(
                     rcc_scanner_token_details_end(
                         details, scanner, RCC_TOKEN_TYPE_LESS_THAN);
                 goto done;
+
+            case '>':
+                retval =
+                    rcc_scanner_token_details_end(
+                        details, scanner, RCC_TOKEN_TYPE_GREATER_THAN);
+                goto done;
         }
     }
 
