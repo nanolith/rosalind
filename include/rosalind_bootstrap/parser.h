@@ -1,13 +1,14 @@
 /**
  * \file rosalind_bootstrap/parser.h
  *
- * \brief Parser and AST for rcc-stage0.
+ * \brief Parser for rcc-stage0.
  *
  * See LICENSE.txt for copyright and license information.
  */
 
 #pragma once
 
+#include <rosalind_bootstrap/ast.h>
 #include <rosalind_bootstrap/error_codes.h>
 #include <rosalind_bootstrap/function_decl.h>
 #include <stdbool.h>
