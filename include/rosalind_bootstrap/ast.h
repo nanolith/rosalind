@@ -40,6 +40,17 @@ struct rcc_ast_import
     rcc_token_details import_loc;
 };
 
+/**
+ * \brief Import spec atom.
+ */
+typedef struct rcc_ast_import_spec_atom rcc_ast_import_spec_atom;
+struct rcc_ast_import_spec_atom
+{
+    rcc_ast_import_spec_atom* next;
+    char* name;
+    rcc_token_details loc;
+};
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
