@@ -29,6 +29,17 @@ struct rcc_ast_module
     rcc_token_details module_loc;
 };
 
+/**
+ * \brief Import definition.
+ */
+typedef struct rcc_ast_import rcc_ast_import;
+struct rcc_ast_import
+{
+    char* name;
+    char* shorthand;
+    rcc_token_details import_loc;
+};
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
