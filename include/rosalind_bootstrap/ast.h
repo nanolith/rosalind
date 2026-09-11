@@ -20,11 +20,12 @@ extern "C" {
 # endif /*__cplusplus*/
 
 /**
- * \brief Module definition.
+ * \brief Import spec atom.
  */
-typedef struct rcc_ast_module rcc_ast_module;
-struct rcc_ast_module
+typedef struct rcc_ast_import_spec_atom rcc_ast_import_spec_atom;
+struct rcc_ast_import_spec_atom
 {
+    rcc_ast_import_spec_atom* next;
     char* name;
     rcc_token_details loc;
 };
@@ -41,12 +42,11 @@ struct rcc_ast_import
 };
 
 /**
- * \brief Import spec atom.
+ * \brief Module definition.
  */
-typedef struct rcc_ast_import_spec_atom rcc_ast_import_spec_atom;
-struct rcc_ast_import_spec_atom
+typedef struct rcc_ast_module rcc_ast_module;
+struct rcc_ast_module
 {
-    rcc_ast_import_spec_atom* next;
     char* name;
     rcc_token_details loc;
 };
