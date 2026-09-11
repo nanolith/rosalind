@@ -39,6 +39,7 @@ struct rcc_ast_import
     char* name;
     char* shorthand;
     rcc_token_details loc;
+    rcc_ast_import_spec_atom* import_spec_head;
 };
 
 /**
