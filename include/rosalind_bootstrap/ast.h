@@ -50,6 +50,7 @@ struct rcc_ast_module
 {
     char* name;
     rcc_token_details loc;
+    rcc_ast_import* import_head;
 };
 
 /* C++ compatibility. */
