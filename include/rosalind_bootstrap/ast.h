@@ -26,7 +26,7 @@ typedef struct rcc_ast_module rcc_ast_module;
 struct rcc_ast_module
 {
     char* name;
-    rcc_token_details module_loc;
+    rcc_token_details loc;
 };
 
 /**
