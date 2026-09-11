@@ -37,7 +37,7 @@ struct rcc_ast_import
 {
     char* name;
     char* shorthand;
-    rcc_token_details import_loc;
+    rcc_token_details loc;
 };
 
 /**
