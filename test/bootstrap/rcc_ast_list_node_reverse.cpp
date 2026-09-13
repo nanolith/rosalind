@@ -35,3 +35,21 @@ TEST(reverse_singleton)
 
     TEST_ASSERT(&singleton == ptr);
 }
+
+/**
+ * \brief Test that we can reverse an arbitrary list.
+ */
+TEST(reverse_multi)
+{
+    rcc_ast_list_node c = { .next = nullptr };
+    rcc_ast_list_node b = { .next = &c };
+    rcc_ast_list_node a = { .next = &b };
+    rcc_ast_list_node* ptr = &a;
+
+    rcc_ast_list_node_reverse(&ptr);
+
+    TEST_ASSERT(&c == ptr);
+    TEST_ASSERT(&b == ptr->next);
+    TEST_ASSERT(&a == ptr->next->next);
+    TEST_ASSERT(nullptr == ptr->next->next->next);
+}
