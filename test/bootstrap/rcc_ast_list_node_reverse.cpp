@@ -22,3 +22,16 @@ TEST(reverse_empty)
 
     TEST_ASSERT(nullptr == empty);
 }
+
+/**
+ * \brief Test that we can reverse a singleton list.
+ */
+TEST(reverse_singleton)
+{
+    rcc_ast_list_node singleton = { .next = nullptr };
+    rcc_ast_list_node* ptr = &singleton;
+
+    rcc_ast_list_node_reverse(&ptr);
+
+    TEST_ASSERT(&singleton == ptr);
+}
