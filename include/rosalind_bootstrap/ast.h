@@ -68,7 +68,7 @@ struct rcc_ast_module
  *
  * \param list          The list to reverse.
  */
-void rcc_ast_list_node_reverse(rcc_ast_list_node* list);
+void rcc_ast_list_node_reverse(rcc_ast_list_node** list);
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
