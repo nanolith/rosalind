@@ -26,5 +26,5 @@ void rcc_ast_list_node_reverse(rcc_ast_list_node** list)
         x = tmp;
     }
 
-    *list = x;
+    *list = ret;
 }
