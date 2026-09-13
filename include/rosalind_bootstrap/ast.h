@@ -20,6 +20,15 @@ extern "C" {
 # endif /*__cplusplus*/
 
 /**
+ * \brief AST list node.
+ */
+typedef struct rcc_ast_list_node rcc_ast_list_node;
+struct rcc_ast_list_node
+{
+    rcc_ast_list_node* next;
+};
+
+/**
  * \brief Import spec atom.
  */
 typedef struct rcc_ast_import_spec_atom rcc_ast_import_spec_atom;
