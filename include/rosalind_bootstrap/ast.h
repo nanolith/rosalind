@@ -45,7 +45,7 @@ struct rcc_ast_import_spec_atom
 typedef struct rcc_ast_import rcc_ast_import;
 struct rcc_ast_import
 {
-    rcc_ast_import* next;
+    rcc_ast_list_node hdr;
     char* name;
     char* shorthand;
     rcc_token_details loc;
