@@ -34,7 +34,7 @@ struct rcc_ast_list_node
 typedef struct rcc_ast_import_spec_atom rcc_ast_import_spec_atom;
 struct rcc_ast_import_spec_atom
 {
-    rcc_ast_import_spec_atom* next;
+    rcc_ast_list_node hdr;
     char* name;
     rcc_token_details loc;
 };
