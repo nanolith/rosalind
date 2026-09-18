@@ -85,6 +85,14 @@ rcc_ast_import_spec_atom_create(
     rcc_ast_import_spec_atom** atom, const char* name,
     const rcc_token_details* loc);
 
+/**
+ * \brief Release a \ref rcc_ast_import_spec_atom instance.
+ *
+ * \param atom          The atom to release.
+ */
+void
+rcc_ast_import_spec_atom_release(rcc_ast_import_spec_atom* atom);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
