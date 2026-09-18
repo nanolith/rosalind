@@ -70,6 +70,21 @@ struct rcc_ast_module
  */
 void rcc_ast_list_node_reverse(rcc_ast_list_node** list);
 
+/**
+ * \brief Create a \ref rcc_ast_import_spec_atom instance.
+ *
+ * \param atom          Pointer to the atom pointer to be set with this instance
+ *                      on success.
+ * \param name          The name of this atom.
+ * \param loc           The location of this atom.
+ *
+ * \returns Zero on success and non-zero on failure.
+ */
+int FN_DECL_MUST_CHECK
+rcc_ast_import_spec_atom_create(
+    rcc_ast_import_spec_atom** atom, const char* name,
+    const rcc_token_details* loc);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
