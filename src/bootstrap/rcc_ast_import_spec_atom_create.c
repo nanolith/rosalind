@@ -1,7 +1,7 @@
 /**
- * \file bootstrap/rcc_scanner_create.c
+ * \file bootstrap/rcc_ast_import_spec_atom_create.c
  *
- * \brief Create a scanner instance.
+ * \brief Create an import spec atom.
  *
  * See LICENSE.txt for copyright and license information.
  */
