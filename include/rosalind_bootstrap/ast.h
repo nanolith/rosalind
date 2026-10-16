@@ -109,6 +109,14 @@ rcc_ast_import_create(
     rcc_ast_import** import, const char* name, const char* shorthand,
     const rcc_token_details* loc);
 
+/**
+ * \brief Release a \ref rcc_ast_import instance.
+ *
+ * \param import        The import to release.
+ */
+void
+rcc_ast_import_release(rcc_ast_import* import);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
