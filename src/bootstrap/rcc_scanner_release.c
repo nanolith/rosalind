@@ -19,6 +19,6 @@
 void
 rcc_scanner_release(rcc_scanner* scanner)
 {
-    memset(scanner, 0, sizeof(*scanner));
+    explicit_bzero(scanner, sizeof(*scanner));
     free(scanner);
 }
