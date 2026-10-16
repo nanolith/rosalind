@@ -38,7 +38,7 @@ rcc_scanner_create(rcc_scanner** scanner, const char* input)
     }
 
     /* initialize tmp. */
-    memset(tmp, 0, sizeof(*tmp));
+    explicit_bzero(tmp, sizeof(*tmp));
     tmp->original_input = tmp->input = input;
     tmp->index = 0;
     tmp->line = tmp->col = 1;
