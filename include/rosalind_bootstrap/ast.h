@@ -117,6 +117,21 @@ rcc_ast_import_create(
 void
 rcc_ast_import_release(rcc_ast_import* import);
 
+/**
+ * \brief Add an import spec atom to the given import.
+ *
+ * \note This import takes ownership of this atom and will release it when it is
+ * released.
+ *
+ * \param import        The import to which this atom is added.
+ * \param atom          The atom to add.
+ *
+ * \returns Zero on success and non-zero on failure.
+ */
+int FN_DECL_MUST_CHECK
+rcc_ast_import_add_atom(
+    rcc_ast_import* import, rcc_ast_import_spec_atom* atom);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
