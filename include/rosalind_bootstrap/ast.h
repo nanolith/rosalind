@@ -130,6 +130,17 @@ void
 rcc_ast_import_add_atom(
     rcc_ast_import* import, rcc_ast_import_spec_atom* atom);
 
+/**
+ * \brief Finalize the addition of atoms.
+ *
+ * \note This function reverses the atom list and should be called only once.
+ *
+ * \param import        The import atom list to finalize.
+ */
+void
+rcc_ast_import_finalize_atoms(
+    rcc_ast_import* import);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
