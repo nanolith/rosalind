@@ -80,7 +80,7 @@ rcc_scanner_complete_token_number(
     }
 
     /* copy this data to an input buffer. */
-    memset(input, 0, sizeof(input));
+    explicit_bzero(input, sizeof(input));
     copy_digits(input, scan_start, &length);
 
     /* attempt to convert the number to a signed integer. */
