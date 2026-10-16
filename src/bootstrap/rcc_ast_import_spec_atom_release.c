@@ -6,10 +6,9 @@
  * See LICENSE.txt for copyright and license information.
  */
 
+#include <rosalind_bootstrap/ast.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "parser_internal.h"
 
 /**
  * \brief Release a \ref rcc_ast_import_spec_atom instance.
