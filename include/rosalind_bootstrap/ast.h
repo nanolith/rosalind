@@ -93,6 +93,22 @@ rcc_ast_import_spec_atom_create(
 void
 rcc_ast_import_spec_atom_release(rcc_ast_import_spec_atom* atom);
 
+/**
+ * \brief Create a \ref rcc_ast_import instance.
+ *
+ * \param import        Pointer to the import pointer to be set with this
+ *                      instance on success.
+ * \param name          The name of this atom.
+ * \param shorthand     The optional shorthand name of this atom.
+ * \param loc           The location of this atom.
+ *
+ * \returns Zero on success and non-zero on failure.
+ */
+int FN_DECL_MUST_CHECK
+rcc_ast_import_create(
+    rcc_ast_import** import, const char* name, const char* shorthand,
+    const rcc_token_details* loc);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
