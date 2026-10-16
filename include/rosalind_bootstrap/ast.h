@@ -125,10 +125,8 @@ rcc_ast_import_release(rcc_ast_import* import);
  *
  * \param import        The import to which this atom is added.
  * \param atom          The atom to add.
- *
- * \returns Zero on success and non-zero on failure.
  */
-int FN_DECL_MUST_CHECK
+void
 rcc_ast_import_add_atom(
     rcc_ast_import* import, rcc_ast_import_spec_atom* atom);
 
