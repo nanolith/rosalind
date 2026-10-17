@@ -34,3 +34,13 @@ namespace, it can be referenced directly as `createFile`.
 ```
     IMPORT System.File as F (createFile);
 ```
+
+Global Variables
+----------------
+
+A global variable is defined at the module scope, using a visibility modifier
+(`PUBLIC` or `PRIVATE`), a name, and a type. For example:
+
+```
+    PRIVATE singleton : BOOLEAN;
+```
