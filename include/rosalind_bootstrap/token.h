@@ -45,8 +45,6 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_ELSE,
     /** \brief END keyword. */
     RCC_TOKEN_TYPE_KEYWORD_END,
-    /** \brief FALSE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_FALSE,
     /** \brief FOR keyword. */
     RCC_TOKEN_TYPE_KEYWORD_FOR,
     /** \brief FUNCTION keyword. */
