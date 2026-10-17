@@ -126,6 +126,8 @@ enum rcc_token_type
 
     /** \brief identifier token. */
     RCC_TOKEN_TYPE_IDENTIFIER,
+    /** \brief Boolean value token. */
+    RCC_TOKEN_TYPE_VALUE_BOOLEAN,
     /** \brief number token. */
     RCC_TOKEN_TYPE_NUMBER,
     /** \brief real token. */
