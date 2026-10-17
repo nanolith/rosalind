@@ -111,8 +111,6 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_THEN,
     /** \brief TO keyword. */
     RCC_TOKEN_TYPE_KEYWORD_TO,
-    /** \brief TRUE keyword. */
-    RCC_TOKEN_TYPE_KEYWORD_TRUE,
     /** \brief TYPE keyword. */
     RCC_TOKEN_TYPE_KEYWORD_TYPE,
     /** \brief UINT keyword. */
