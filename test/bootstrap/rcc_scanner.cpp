@@ -4476,10 +4476,10 @@ TEST(simple_number)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT(4 == details.begin_index);
     TEST_EXPECT(6 == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
@@ -4511,10 +4511,10 @@ TEST(large_number)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT(0 == details.begin_index);
     TEST_EXPECT((strlen(INPUT)-1) == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
@@ -4575,10 +4575,10 @@ TEST(negative_number)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT(4 == details.begin_index);
     TEST_EXPECT(7 == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
@@ -4607,12 +4607,12 @@ TEST(number_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -4672,7 +4672,7 @@ TEST(minus_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -4698,10 +4698,10 @@ TEST(hex_number_happy_path)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT( 4 == details.begin_index);
     TEST_EXPECT(10 == details.end_index);
     TEST_EXPECT( 1 == details.begin_line);
@@ -4731,10 +4731,10 @@ TEST(hex_number_negative)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT( 4 == details.begin_index);
     TEST_EXPECT(11 == details.end_index);
     TEST_EXPECT( 1 == details.begin_line);
@@ -4764,10 +4764,10 @@ TEST(octal_number_happy_path)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT(4 == details.begin_index);
     TEST_EXPECT(6 == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
@@ -4797,10 +4797,10 @@ TEST(octal_number_negative)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT(4 == details.begin_index);
     TEST_EXPECT(7 == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
@@ -4830,10 +4830,10 @@ TEST(binary_number_happy_path)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT(4 == details.begin_index);
     TEST_EXPECT(8 == details.end_index);
     TEST_EXPECT(1 == details.begin_line);
@@ -4863,10 +4863,10 @@ TEST(binary_number_negative)
 
     /* attempt to read a number. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
-    TEST_ASSERT(RCC_TOKEN_TYPE_NUMBER == details.type);
+    TEST_ASSERT(RCC_TOKEN_TYPE_VALUE_NUMBER == details.type);
     TEST_EXPECT( 4 == details.begin_index);
     TEST_EXPECT( 9 == details.end_index);
     TEST_EXPECT( 1 == details.begin_line);
@@ -4930,7 +4930,7 @@ TEST(plus_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -4990,7 +4990,7 @@ TEST(star_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5050,7 +5050,7 @@ TEST(slash_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5110,7 +5110,7 @@ TEST(equal_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5170,7 +5170,7 @@ TEST(less_than_equal_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5230,7 +5230,7 @@ TEST(less_than_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5290,7 +5290,7 @@ TEST(not_equal_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5350,7 +5350,7 @@ TEST(greater_than_equal_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5410,7 +5410,7 @@ TEST(greater_than_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5470,7 +5470,7 @@ TEST(assignment_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */
@@ -5530,7 +5530,7 @@ TEST(colon_advances_scanner)
 
     /* read a number token. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_NUMBER
+        RCC_TOKEN_TYPE_VALUE_NUMBER
             == rcc_scanner_read_token(&details, scanner));
 
     /* read EOF. */

@@ -438,8 +438,8 @@ rcc_scanner_complete_token_identifier(
  * \param base              The base for this number.
  *
  * \returns a token from the scanner.
- *      - RCC_TOKEN_TYPE_NUMBER
- *      - RCC_TOKEN_TYPE_REAL
+ *      - RCC_TOKEN_TYPE_VALUE_NUMBER
+ *      - RCC_TOKEN_TYPE_VALUE_REAL
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
 int FN_DECL_MUST_CHECK

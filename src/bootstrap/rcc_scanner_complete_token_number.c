@@ -27,8 +27,8 @@ static void copy_digits(char* output, const char* input, ptrdiff_t* length);
  * \param base              The base for this number.
  *
  * \returns a token from the scanner.
- *      - RCC_TOKEN_TYPE_NUMBER
- *      - RCC_TOKEN_TYPE_REAL
+ *      - RCC_TOKEN_TYPE_VALUE_NUMBER
+ *      - RCC_TOKEN_TYPE_VALUE_REAL
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
 int FN_DECL_MUST_CHECK
@@ -66,7 +66,8 @@ rcc_scanner_complete_token_number(
 
     /* end number. */
     retval =
-        rcc_scanner_token_details_end(details, scanner, RCC_TOKEN_TYPE_NUMBER);
+        rcc_scanner_token_details_end(
+            details, scanner, RCC_TOKEN_TYPE_VALUE_NUMBER);
 
     /* Get the scanned data. */
     const char* scan_start = scanner->original_input + details->begin_index;

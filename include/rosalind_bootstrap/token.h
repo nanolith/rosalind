@@ -129,7 +129,7 @@ enum rcc_token_type
     /** \brief Boolean value token. */
     RCC_TOKEN_TYPE_VALUE_BOOLEAN,
     /** \brief number token. */
-    RCC_TOKEN_TYPE_NUMBER,
+    RCC_TOKEN_TYPE_VALUE_NUMBER,
     /** \brief real token. */
     RCC_TOKEN_TYPE_REAL,
     /** \brief plus token. */
