@@ -32,7 +32,7 @@ Since `createFile` is explicitly referenced for inclusion in this module's
 namespace, it can be referenced directly as `createFile`.
 
 ```
-    IMPORT System.File as F (createFile);
+    IMPORT System.File AS F (createFile, closeFile);
 ```
 
 Global Variables
