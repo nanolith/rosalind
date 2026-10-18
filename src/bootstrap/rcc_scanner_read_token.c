@@ -84,6 +84,10 @@ rcc_scanner_read_token(
             retval = rcc_scanner_complete_token_relational(details, scanner);
             goto done;
 
+        case ';':
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_SEMICOLON);
+            goto done;
+
         case '<':
             retval = rcc_scanner_complete_token_relational(details, scanner);
             goto done;
