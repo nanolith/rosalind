@@ -144,6 +144,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_STAR,
     /** \brief open parenthesis token. */
     RCC_TOKEN_TYPE_OPEN_PARENTHESIS,
+    /** \brief close parenthesis token. */
+    RCC_TOKEN_TYPE_CLOSE_PARENTHESIS,
     /** \brief slash token. */
     RCC_TOKEN_TYPE_SLASH,
     /** \brief equal token. */
