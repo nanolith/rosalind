@@ -3959,6 +3959,37 @@ TEST(TRUE_identifier_fallback)
 }
 
 /**
+ * \brief Test that TRUE advances the scanner.
+ */
+TEST(TRUE_advances_scanner)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = "TRUE TRUE2 \t ";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a TRUE keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_BOOLEAN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
+
+/**
  * \brief Test that we can read a TYPE token.
  */
 TEST(TYPE_happy_path)
