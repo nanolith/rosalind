@@ -42,5 +42,5 @@ A global variable is defined at the module scope, using a visibility modifier
 (`PUBLIC` or `PRIVATE`), a name, and a type. For example:
 
 ```
-    PRIVATE singleton : BOOLEAN;
+    PRIVATE singletonInitialized : BOOLEAN = FALSE;
 ```
