@@ -136,6 +136,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_DOT,
     /** \brief plus token. */
     RCC_TOKEN_TYPE_PLUS,
+    /** \brief comma token. */
+    RCC_TOKEN_TYPE_COMMA,
     /** \brief minus token. */
     RCC_TOKEN_TYPE_MINUS,
     /** \brief star token. */
