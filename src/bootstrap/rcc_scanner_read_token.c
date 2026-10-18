@@ -72,6 +72,10 @@ rcc_scanner_read_token(
                 rcc_scanner_complete_token_number(details, scanner, 10);
             goto done;
 
+        case '.':
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_DOT);
+            goto done;
+
         case '/':
             retval = accept(details, scanner, RCC_TOKEN_TYPE_SLASH);
             goto done;
