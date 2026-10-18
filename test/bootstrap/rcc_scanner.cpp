@@ -4060,7 +4060,7 @@ TEST(TRUE_advances_scanner)
     /* Create the scanner instance. */
     TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
 
-    /* read a TRUE keyword. */
+    /* read a BOOLEAN value. */
     TEST_ASSERT(
         RCC_TOKEN_TYPE_VALUE_BOOLEAN
             == rcc_scanner_read_token(&details, scanner));
