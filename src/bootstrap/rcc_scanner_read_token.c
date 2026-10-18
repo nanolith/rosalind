@@ -67,6 +67,10 @@ rcc_scanner_read_token(
             retval = accept(details, scanner, RCC_TOKEN_TYPE_OPEN_PARENTHESIS);
             goto done;
 
+        case ')':
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_CLOSE_PARENTHESIS);
+            goto done;
+
         case '+':
             retval = accept(details, scanner, RCC_TOKEN_TYPE_PLUS);
             goto done;
