@@ -12,6 +12,9 @@
 
 /* forward decls. */
 static int
+rcc_scanner_complete_token_value_BOOLEAN_FALSE(
+    rcc_token_details* details, rcc_scanner* scanner);
+static int
 rcc_scanner_complete_token_keyword_FOR(
     rcc_token_details* details, rcc_scanner* scanner);
 static int
@@ -37,6 +40,15 @@ rcc_scanner_complete_token_keyword_F_STAR(
 {
     int retval;
 
+    /* handle FALSE value. */
+    if ('A' == scanner->input[1])
+    {
+        rcc_scanner_next_character(scanner);
+        retval =
+            rcc_scanner_complete_token_value_BOOLEAN_FALSE(details, scanner);
+        goto done;
+    }
+
     /* handle FOR keyword. */
     if ('O' == scanner->input[1])
     {
@@ -58,6 +70,68 @@ rcc_scanner_complete_token_keyword_F_STAR(
         rcc_scanner_complete_token_identifier(
             details, scanner, false);
     goto done;
+
+done:
+    return retval;
+}
+
+/**
+ * \brief Attempt to complete a FALSE Boolean value.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_VALUE_BOOLEAN
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+
+static int
+rcc_scanner_complete_token_value_BOOLEAN_FALSE(
+    rcc_token_details* details, rcc_scanner* scanner)
+{
+    int retval;
+
+    /* the next letter must start with L to be a keyword. */
+    if ('L' != scanner->input[1])
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with S to be a keyword. */
+    if ('S' != scanner->input[1])
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with E to be a keyword. */
+    if ('E' != scanner->input[1])
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* if the token continues with an alphanumeric, this is an identifier. */
+    if (isalnum(scanner->input[1]))
+    {
+        goto identifier_fallback;
+    }
+    else
+    {
+        retval =
+            rcc_scanner_token_details_end(
+                details, scanner, RCC_TOKEN_TYPE_VALUE_BOOLEAN);
+        rcc_scanner_next_character(scanner);
+        details->primitive_val.booleanv = false;
+        goto done;
+    }
+
+identifier_fallback:
+    retval = rcc_scanner_complete_token_identifier(details, scanner, false);
 
 done:
     return retval;
