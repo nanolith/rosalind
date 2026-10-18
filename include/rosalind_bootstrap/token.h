@@ -95,6 +95,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_PROCEDURE,
     /** \brief PUBLIC keyword. */
     RCC_TOKEN_TYPE_KEYWORD_PUBLIC,
+    /** \brief REAL keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_REAL,
     /** \brief RECORD keyword. */
     RCC_TOKEN_TYPE_KEYWORD_RECORD,
     /** \brief REVEAL keyword. */
