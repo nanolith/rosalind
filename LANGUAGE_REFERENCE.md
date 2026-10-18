@@ -44,3 +44,17 @@ A global variable is defined at the module scope, using a visibility modifier
 ```
     PRIVATE singletonInitialized : BOOLEAN = FALSE;
 ```
+
+Functions
+---------
+
+A function is a subprogram that performs some operation and returns a value. By
+default, functions are *pure*, which means that they do not have any
+side-effects. For example, this function squares a number.
+
+```
+    PUBLIC square(a: REAL): REAL
+    BEGIN
+        square := a * a;
+    END;
+```
