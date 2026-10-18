@@ -75,6 +75,10 @@ rcc_scanner_read_token(
             retval = accept(details, scanner, RCC_TOKEN_TYPE_PLUS);
             goto done;
 
+        case ',':
+            retval = accept(details, scanner, RCC_TOKEN_TYPE_COMMA);
+            goto done;
+
         case '-':
             retval =
                 rcc_scanner_complete_token_number(details, scanner, 10);
