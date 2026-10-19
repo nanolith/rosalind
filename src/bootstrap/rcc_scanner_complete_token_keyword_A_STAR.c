@@ -18,7 +18,10 @@ static int
 rcc_scanner_complete_token_keyword_ARRAY(
     rcc_token_details* details, rcc_scanner* scanner);
 static int
-rcc_scanner_complete_token_keyword_AS(
+rcc_scanner_complete_token_keyword_AS_STAR(
+    rcc_token_details* details, rcc_scanner* scanner);
+static int
+rcc_scanner_complete_token_keyword_ASSERT(
     rcc_token_details* details, rcc_scanner* scanner);
 
 /**
@@ -61,7 +64,7 @@ rcc_scanner_complete_token_keyword_A_STAR(
     if ('S' == scanner->input[1])
     {
         rcc_scanner_next_character(scanner);
-        retval = rcc_scanner_complete_token_keyword_AS(details, scanner);
+        retval = rcc_scanner_complete_token_keyword_AS_STAR(details, scanner);
         goto done;
     }
 
@@ -182,7 +185,7 @@ done:
 }
 
 /**
- * \brief Attempt to complete an AS keyword.
+ * \brief Attempt to complete an AS or ASSERT keyword.
  *
  * \param details           Pointer to the token structure to receive additional
  *                          details.
@@ -190,14 +193,82 @@ done:
  *
  * \returns a token from the scanner.
  *      - RCC_TOKEN_TYPE_KEYWORD_AS
+ *      - RCC_TOKEN_TYPE_KEYWORD_ASSERT
  *      - RCC_TOKEN_TYPE_IDENTIFIER
  *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
  */
 static int
-rcc_scanner_complete_token_keyword_AS(
+rcc_scanner_complete_token_keyword_AS_STAR(
     rcc_token_details* details, rcc_scanner* scanner)
 {
     int retval;
+
+    /* handle ASSERT keyword. */
+    if ('S' == scanner->input[1])
+    {
+        rcc_scanner_next_character(scanner);
+        retval = rcc_scanner_complete_token_keyword_ASSERT(details, scanner);
+        goto done;
+    }
+    /* if the token continues with an alphanumeric, this is an identifier. */
+    else if (isalnum(scanner->input[1]))
+    {
+        goto identifier_fallback;
+    }
+    else
+    {
+        retval =
+            rcc_scanner_token_details_end(
+                details, scanner, RCC_TOKEN_TYPE_KEYWORD_AS);
+        rcc_scanner_next_character(scanner);
+        goto done;
+    }
+
+identifier_fallback:
+    retval = rcc_scanner_complete_token_identifier(details, scanner, false);
+
+done:
+    return retval;
+}
+
+/**
+ * \brief Attempt to complete an ASSERT keyword.
+ *
+ * \param details           Pointer to the token structure to receive additional
+ *                          details.
+ * \param scanner           The scanner instance for this operation.
+ *
+ * \returns a token from the scanner.
+ *      - RCC_TOKEN_TYPE_KEYWORD_ASSERT
+ *      - RCC_TOKEN_TYPE_IDENTIFIER
+ *      - RCC_TOKEN_TYPE_BAD_INPUT if the scanner encounters bad input.
+ */
+static int
+rcc_scanner_complete_token_keyword_ASSERT(
+    rcc_token_details* details, rcc_scanner* scanner)
+{
+    int retval;
+
+    /* the next letter must start with E to be a keyword. */
+    if ('E' != scanner->input[1])
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with R to be a keyword. */
+    if ('R' != scanner->input[1])
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
+
+    /* the next letter must start with T to be a keyword. */
+    if ('T' != scanner->input[1])
+    {
+        goto identifier_fallback;
+    }
+    rcc_scanner_next_character(scanner);
 
     /* if the token continues with an alphanumeric, this is an identifier. */
     if (isalnum(scanner->input[1]))
@@ -208,7 +279,7 @@ rcc_scanner_complete_token_keyword_AS(
     {
         retval =
             rcc_scanner_token_details_end(
-                details, scanner, RCC_TOKEN_TYPE_KEYWORD_AS);
+                details, scanner, RCC_TOKEN_TYPE_KEYWORD_ASSERT);
         rcc_scanner_next_character(scanner);
         goto done;
     }
