@@ -93,14 +93,14 @@ is set to `0`.
     PRECONDITIONS
     BEGIN
         ASSERT PropertyValidReferenceToREAL(result);
-    END;
+    END
     POSTCONDITIONS
     BEGIN
         ASSERT PropertyVariableModified(result);
 
         IF quadraticRoot <> TRUE THEN
             ASSERT (result^ = 0);
-    END;
+    END
     BEGIN
         CONST discriminant: REAL = b * b - 4 * a * c;
 
