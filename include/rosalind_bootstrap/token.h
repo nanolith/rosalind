@@ -29,6 +29,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_KEYWORD_ARRAY,
     /** \brief AS keyword. */
     RCC_TOKEN_TYPE_KEYWORD_AS,
+    /** \brief ASSERT keyword. */
+    RCC_TOKEN_TYPE_KEYWORD_ASSERT,
     /** \brief BEGIN keyword. */
     RCC_TOKEN_TYPE_KEYWORD_BEGIN,
     /** \brief BOOLEAN keyword. */
