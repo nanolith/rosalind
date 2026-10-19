@@ -170,6 +170,8 @@ enum rcc_token_type
     RCC_TOKEN_TYPE_COLON,
     /** \brief semicolon token. */
     RCC_TOKEN_TYPE_SEMICOLON,
+    /** \brief caret token. */
+    RCC_TOKEN_TYPE_CARET,
 
     /** \brief bad input. */
     RCC_TOKEN_TYPE_BAD_INPUT,
