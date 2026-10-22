@@ -377,3 +377,102 @@ TEST(quadraticRoot_example_function_contract)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can scan the constant expression in the quadraticRoot
+ * example.
+ */
+TEST(quadraticRoot_example_discriminant_constant)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = R"(
+        CONST discriminant: REAL := b * b - 4 * a * c;
+    )";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read a CONST keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_CONST
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a colon. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_COLON
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a REAL keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_REAL
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an assignment. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_ASSIGNMENT
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a star. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_STAR
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a minus. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_MINUS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a star. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_STAR
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a star. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_STAR
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a semicolon. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_SEMICOLON
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
