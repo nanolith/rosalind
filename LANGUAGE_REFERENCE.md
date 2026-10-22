@@ -102,7 +102,7 @@ is set to `0`.
             ASSERT (result^ = 0);
     END
     BEGIN
-        CONST discriminant: REAL = b * b - 4 * a * c;
+        CONST discriminant: REAL := b * b - 4 * a * c;
 
         IF     (a = 0)
             OR (discriminant < 0)
