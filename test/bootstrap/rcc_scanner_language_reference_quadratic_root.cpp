@@ -476,3 +476,235 @@ TEST(quadraticRoot_example_discriminant_constant)
     /* clean up. */
     rcc_scanner_release(scanner);
 }
+
+/**
+ * \brief Test that we can scan the IF statement for the quadraticRoot function
+ * example.
+ */
+TEST(quadraticRoot_example_if_statement)
+{
+    rcc_scanner* scanner = nullptr;
+    rcc_token_details details;
+    const char* INPUT = R"(
+        IF     (a = 0)
+            OR (discriminant < 0)
+            OR (index > 0 AND discriminant = 0)
+            OR (index > 1)
+        THEN
+        BEGIN
+            result^ := 0;
+            quadraticRoot := FALSE;
+        END
+    )";
+
+    /* Create the scanner instance. */
+    TEST_ASSERT(0 == rcc_scanner_create(&scanner, INPUT));
+
+    /* read an IF keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_IF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an open parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_OPEN_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an equal. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EQUAL
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a close parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_CLOSE_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an OR keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_OR
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an open parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_OPEN_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a less-than. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_LESS_THAN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a close parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_CLOSE_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an OR keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_OR
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an open parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_OPEN_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a greater than. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_GREATER_THAN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an AND keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_AND
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an equal. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EQUAL
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a close parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_CLOSE_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an OR keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_OR
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an open parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_OPEN_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a greater-than. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_GREATER_THAN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a close parenthesis. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_CLOSE_PARENTHESIS
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a THEN keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_THEN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a BEGIN keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_BEGIN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a caret. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_CARET
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a assignment. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_ASSIGNMENT
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a number. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_NUMBER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a semicolon. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_SEMICOLON
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an identifier. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_IDENTIFIER
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an assignment. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_ASSIGNMENT
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be Boolean value. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_VALUE_BOOLEAN
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be a semicolon. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_SEMICOLON
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* the next token should be an END keyword. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_KEYWORD_END
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* read EOF. */
+    TEST_ASSERT(
+        RCC_TOKEN_TYPE_EOF
+            == rcc_scanner_read_token(&details, scanner));
+
+    /* clean up. */
+    rcc_scanner_release(scanner);
+}
