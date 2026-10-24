@@ -27,6 +27,21 @@ struct rcc_avl_tree_node
     int height;
 };
 
+/**
+ * \brief Comparison function type for comparing two AVL tree keys.
+ *
+ * \param context       Context data to be passed to the comparison function.
+ * \param lhs           The left-hand key of the comparison.
+ * \param rhs           The right-hand key of the comparison.
+ *
+ * \returns an integer value representing the comparison result.
+ *      - &lt; 0 if \p lhs &lt; \p rhs.
+ *      - 0 if \p lhs == \p rhs.
+ *      - &gt; 0 if \p lhs &gt; \p rhs.
+ */
+typedef int (*rcc_avl_tree_compare_fn)(
+    void* context, const void* lhs, const void* rhs);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
