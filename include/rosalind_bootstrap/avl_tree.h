@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <stddef.h>
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 extern "C" {
@@ -62,6 +64,20 @@ typedef const void* (*rcc_avl_tree_key_fn)(void* context, const void* elem);
  */
 typedef int (*rcc_avl_tree_release_fn)(
     void* context, rcc_avl_tree_node* node);
+
+/**
+ * \brief AVL tree.
+ */
+typedef struct rcc_avl_tree rcc_avl_tree;
+struct rcc_avl_tree
+{
+    rcc_avl_tree_compare_fn compare_fn;
+    rcc_avl_tree_key_fn key_fn;
+    rcc_avl_tree_release_fn release_fn;
+    void* context;
+    rcc_avl_tree_node* root;
+    size_t count;
+};
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
