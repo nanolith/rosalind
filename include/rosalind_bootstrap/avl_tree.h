@@ -228,6 +228,16 @@ rcc_avl_tree_node* rcc_avl_tree_predecessor_node(
  */
 void rcc_avl_tree_rotate_right(rcc_avl_tree_node** root);
 
+/**
+ * \brief Perform a left rotation on an AVL tree.
+ *
+ * Root will become root->right's left-most child, and root->right will become
+ * the new root of this subtree.
+ *
+ * \param root          The root for this rotation.
+ */
+void rcc_avl_tree_rotate_left(rcc_avl_tree_node** root);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
