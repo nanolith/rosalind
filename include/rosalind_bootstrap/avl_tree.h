@@ -115,6 +115,17 @@ int rcc_avl_tree_release(rcc_avl_tree* tree);
  */
 int rcc_avl_tree_clear(rcc_avl_tree* tree);
 
+/**
+ * \brief Recursively release all nodes under a given node as well as this node
+ * in a tree.
+ *
+ * \param tree          The tree instance for this delete operation.
+ * \param node          The node to recursively delete.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+int rcc_avl_tree_delete_nodes(rcc_avl_tree* tree, rcc_avl_tree_node* node);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
