@@ -106,6 +106,15 @@ int rcc_avl_tree_create(
  */
 int rcc_avl_tree_release(rcc_avl_tree* tree);
 
+/**
+ * \brief Clear all nodes in an AVL tree, and set the count to 0.
+ *
+ * \param tree          The tree instance to clear.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+int rcc_avl_tree_clear(rcc_avl_tree* tree);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
