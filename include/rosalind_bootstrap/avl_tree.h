@@ -196,6 +196,17 @@ rcc_avl_tree_node* rcc_avl_tree_minimum_node(
 rcc_avl_tree_node* rcc_avl_tree_maximum_node(
     rcc_avl_tree* tree, rcc_avl_tree_node* x);
 
+/**
+ * \brief Return the in-order successor node of the given node, or NULL.
+ *
+ * \param tree          The AVL tree for this operation.
+ * \param x             The node from which this successor is found.
+ *
+ * \returns the successor node of this node, or NULL if none is found.
+ */
+rcc_avl_tree_node* rcc_avl_tree_successor_node(
+    rcc_avl_tree* tree, rcc_avl_tree_node* x);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
