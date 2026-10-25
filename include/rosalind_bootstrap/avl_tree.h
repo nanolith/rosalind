@@ -164,6 +164,14 @@ bool rcc_avl_tree_find(
 int rcc_avl_tree_delete(
     rcc_avl_tree_node** node, rcc_avl_tree* tree, const void* key);
 
+/**
+ * \brief Swap the contents of two AVL tree instances.
+ *
+ * \param left          The left AVL tree for the swap.
+ * \param right         The right AVL tree for the swap.
+ */
+void rcc_avl_tree_swap(rcc_avl_tree* left, rcc_avl_tree* right);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
