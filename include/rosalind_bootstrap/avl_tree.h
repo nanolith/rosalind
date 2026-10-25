@@ -238,6 +238,17 @@ void rcc_avl_tree_rotate_right(rcc_avl_tree_node** root);
  */
 void rcc_avl_tree_rotate_left(rcc_avl_tree_node** root);
 
+/**
+ * \brief Remove the given node from the tree, transplanting nodes as needed.
+ *
+ * \note This operation does not release the node. Ownership is transferred to
+ * the caller.
+ *
+ * \param tree          The tree for this remove operation.
+ * \param node          The node to remove.
+ */
+void rcc_avl_tree_remove_node(rcc_avl_tree* tree, rcc_avl_tree_node* node);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
