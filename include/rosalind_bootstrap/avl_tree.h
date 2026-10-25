@@ -172,6 +172,18 @@ int rcc_avl_tree_delete(
  */
 void rcc_avl_tree_swap(rcc_avl_tree* left, rcc_avl_tree* right);
 
+/**
+ * \brief Given a subtree node, return the minimum node in this subtree.
+ *
+ * \param tree          The AVL tree for this operation.
+ * \param x             The node from which this search should start. Must not
+ *                      be NULL.
+ *
+ * \returns the minimum node in this subtree.
+ */
+rcc_avl_tree_node* rcc_avl_tree_minimum_node(
+    rcc_avl_tree* tree, rcc_avl_tree_node* x);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
