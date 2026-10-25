@@ -9,6 +9,7 @@
 #pragma once
 
 #include <stddef.h>
+#include <stdbool.h>
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
@@ -135,6 +136,19 @@ int rcc_avl_tree_delete_nodes(rcc_avl_tree* tree, rcc_avl_tree_node* node);
  * \param node          The node to insert.
  */
 void rcc_avl_tree_insert(rcc_avl_tree* tree, rcc_avl_tree_node* node);
+
+/**
+ * \brief Find a node in the AVL tree matching the given user defined key.
+ *
+ * \param node          Pointer to the node pointer to set to the found element
+ *                      if found.
+ * \param tree          The tree instance for this find operation.
+ * \param key           The user-defined key for this find operation.
+ *
+ * \returns true if this element was found and false otherwise.
+ */
+bool rcc_avl_tree_find(
+    rcc_avl_tree_node** node, rcc_avl_tree* tree, const void* key);
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
