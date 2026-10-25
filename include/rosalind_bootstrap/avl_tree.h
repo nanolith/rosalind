@@ -184,6 +184,18 @@ void rcc_avl_tree_swap(rcc_avl_tree* left, rcc_avl_tree* right);
 rcc_avl_tree_node* rcc_avl_tree_minimum_node(
     rcc_avl_tree* tree, rcc_avl_tree_node* x);
 
+/**
+ * \brief Given a subtree node, return the maximum node in this subtree.
+ *
+ * \param tree          The AVL tree for this operation.
+ * \param x             The node from which this search should start. Must not
+ *                      be NULL.
+ *
+ * \returns the maximum node in this subtree.
+ */
+rcc_avl_tree_node* rcc_avl_tree_maximum_node(
+    rcc_avl_tree* tree, rcc_avl_tree_node* x);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
