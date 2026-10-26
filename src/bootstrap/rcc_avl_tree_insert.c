@@ -1,7 +1,7 @@
 /**
  * \file bootstrap/rcc_avl_tree_insert.c
  *
- * \brief Perform a left rotation on an AST tree.
+ * \brief Insert a node into an AVL tree.
  *
  * See LICENSE.txt for copyright and license information.
  */
