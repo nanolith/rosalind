@@ -39,6 +39,11 @@ struct rcc_symbol_entry
 typedef int (*rcc_symbol_entry_release_fn)(
     void* context, rcc_symbol_entry* entry);
 
+/**
+ * \brief symbol map.
+ */
+typedef struct rcc_symbol_map rcc_symbol_map;
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
