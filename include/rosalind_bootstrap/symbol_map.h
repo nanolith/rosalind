@@ -85,6 +85,18 @@ int rcc_symbol_entry_create(
     rcc_symbol_entry** entry, const char* name, size_t size);
 
 /**
+ * \brief Release the \ref rcc_symbol_entry part of the derived instance.
+ *
+ * \note This release method should be called as the last step of the release
+ * mechanism for the derived type; it will reclaim memory for the derived type.
+ *
+ * \param entry         The entry to release.
+ * \param size          The total size of the derived entry, for cleanup.
+ */
+void rcc_symbol_entry_release(
+    rcc_symbol_entry* entry, size_t size);
+
+/**
  * \brief Clear all nodes in a symbol map, and set the count to 0.
  *
  * \param map           The map instance to clear.
