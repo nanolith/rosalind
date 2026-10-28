@@ -28,6 +28,17 @@ struct rcc_symbol_entry
     char* name;
 };
 
+/**
+ * \brief Given a symbol entry, release it.
+ *
+ * \param context       Context data to be passed to the release function.
+ * \param entry         The entry to release.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+typedef int (*rcc_symbol_entry_release_fn)(
+    void* context, rcc_symbol_entry* entry);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
