@@ -44,6 +44,20 @@ typedef int (*rcc_symbol_entry_release_fn)(
  */
 typedef struct rcc_symbol_map rcc_symbol_map;
 
+/**
+ * \brief Create a new \ref rcc_symbol_map instance.
+ *
+ * \param map           Pointer to the \ref rcc_symbol_map pointer to set to the
+ *                      created instance on success.
+ * \param release_fn    Function to release a tree node.
+ * \param context       The user context for this map.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+int rcc_symbol_map_create(
+    rcc_symbol_map** map, rcc_symbol_entry_release_fn release_fn,
+    void* context);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
