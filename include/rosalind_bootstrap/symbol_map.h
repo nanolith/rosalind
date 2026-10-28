@@ -94,6 +94,19 @@ int rcc_symbol_map_clear(rcc_symbol_map* map);
 int rcc_symbol_map_insert(
     rcc_symbol_map* map, rcc_symbol_entry* entry, bool overwrite);
 
+/**
+ * \brief Find an entry in the symbol map matching the given symbol name.
+ *
+ * \param entry         Pointer to the entry pointer to set to the found entry
+ *                      if found.
+ * \param map           The symbol map instance for this find operation.
+ * \param name          The symbol name to find.
+ *
+ * \returns true if this entry was found and false otherwise.
+ */
+bool rcc_symbol_map_find(
+    rcc_symbol_entry** entry, rcc_symbol_map* map, const char* name);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
