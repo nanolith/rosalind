@@ -58,6 +58,16 @@ int rcc_symbol_map_create(
     rcc_symbol_map** map, rcc_symbol_entry_release_fn release_fn,
     void* context);
 
+/**
+ * \brief Release an \ref rcc_symbol_map instance, calling the user release
+ * function on any entries in the map.
+ *
+ * \param map           The map instance to release.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+int rcc_symbol_map_release(rcc_symbol_map* map);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
