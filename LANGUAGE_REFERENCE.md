@@ -88,7 +88,7 @@ is set to `0`.
 
 ```
     PUBLIC quadraticRoot(
-        result: POINTER TO REAL, index: INT(8), a: REAL, b: REAL, c: REAL):
+        result: ^REAL, index: INT(8), a: REAL, b: REAL, c: REAL):
             BOOLEAN
     PRECONDITIONS
     BEGIN
