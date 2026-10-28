@@ -149,6 +149,18 @@ void rcc_symbol_map_count(const rcc_symbol_map* map);
  */
 rcc_symbol_entry* rcc_symbol_map_first(rcc_symbol_map* map);
 
+/**
+ * \brief Get the next entry for this symbol map, or NULL if no entries are
+ * found.
+ *
+ * \param map           The symbol map for this operation.
+ * \param curr          The current entry.
+ *
+ * \returns the next entry or NULL.
+ */
+rcc_symbol_entry* rcc_symbol_map_next(
+    rcc_symbol_map* map, rcc_symbol_entry* curr);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
