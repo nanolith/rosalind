@@ -122,6 +122,14 @@ bool rcc_symbol_map_find(
 int rcc_symbol_map_delete(
     rcc_symbol_entry** entry, rcc_symbol_map* map, const char* name);
 
+/**
+ * \brief Swap the contents of two symbol map instances.
+ *
+ * \param left          The left symbol map for the swap.
+ * \param right         The right symbol map for the swap.
+ */
+void rcc_symbol_map_swap(rcc_symbol_map* left, rcc_symbol_map* right);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
