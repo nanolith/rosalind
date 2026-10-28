@@ -68,6 +68,15 @@ int rcc_symbol_map_create(
  */
 int rcc_symbol_map_release(rcc_symbol_map* map);
 
+/**
+ * \brief Clear all nodes in a symbol map, and set the count to 0.
+ *
+ * \param map           The map instance to clear.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+int rcc_symbol_map_clear(rcc_symbol_map* map);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
