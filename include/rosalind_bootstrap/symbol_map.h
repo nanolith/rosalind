@@ -130,6 +130,15 @@ int rcc_symbol_map_delete(
  */
 void rcc_symbol_map_swap(rcc_symbol_map* left, rcc_symbol_map* right);
 
+/**
+ * \brief Get the number of entries for this symbol map.
+ *
+ * \param map           The symbol map for this operation.
+ *
+ * \returns the number of entries for this symbol map.
+ */
+void rcc_symbol_map_count(const rcc_symbol_map* map);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
