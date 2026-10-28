@@ -70,6 +70,21 @@ int rcc_symbol_map_create(
 int rcc_symbol_map_release(rcc_symbol_map* map);
 
 /**
+ * \brief Create a new \ref rcc_symbol_entry instance of the given total size.
+ *
+ * \note This create method should be used by the derived type create method.
+ *
+ * \param entry         Pointer to the \ref rcc_symbol_entry pointer to set to
+ *                      the created instance on success.
+ * \param name          The name of this entry.
+ * \param size          The total size of the derived entry.
+ *
+ * \returns 0 on success and non-zero on failure.
+ */
+int rcc_symbol_entry_create(
+    rcc_symbol_entry** entry, const char* name, size_t size);
+
+/**
  * \brief Clear all nodes in a symbol map, and set the count to 0.
  *
  * \param map           The map instance to clear.
