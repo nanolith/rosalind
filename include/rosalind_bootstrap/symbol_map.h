@@ -9,6 +9,7 @@
 #pragma once
 
 #include <rosalind_bootstrap/avl_tree.h>
+#include <stdbool.h>
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
@@ -76,6 +77,22 @@ int rcc_symbol_map_release(rcc_symbol_map* map);
  * \returns 0 on success and non-zero on failure.
  */
 int rcc_symbol_map_clear(rcc_symbol_map* map);
+
+/**
+ * \brief Insert an entry into the symbol map instance.
+ *
+ * \note The symbol map takes ownership of this entry on success.
+ *
+ * \param map           The map instance for this insert operation.
+ * \param entry         The entry to insert.
+ * \param overwrite     Set to true if any previous entry should be overwritten.
+ *
+ * \returns 0 on success and non-zero on failure.
+ *      - RCC_ERROR_WOULD_OVERWRITE if an entry already exists, and overwrite is
+ *        set to false.
+ */
+int rcc_symbol_map_insert(
+    rcc_symbol_map* map, rcc_symbol_entry* entry, bool overwrite);
 
 /* C++ compatibility. */
 # ifdef   __cplusplus
