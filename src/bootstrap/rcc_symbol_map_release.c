@@ -21,7 +21,12 @@
  */
 int rcc_symbol_map_release(rcc_symbol_map* map)
 {
-    int retval = rcc_avl_tree_release(map->tree);
+    int retval = 0;
+
+    if (NULL != map->tree)
+    {
+        retval = rcc_avl_tree_release(map->tree);
+    }
 
     explicit_bzero(map, sizeof(*map));
     free(map);
