@@ -35,6 +35,16 @@ struct rcc_symbol_map
 int rcc_symbol_map_compare(
     void* context, const char* lhs, const char* rhs);
 
+/**
+ * \brief Given a symbol entry, return the key.
+ *
+ * \param context       Unused.
+ * \param entry         The entry.
+ *
+ * \returns the key for this entry.
+ */
+const char* rcc_symbol_map_key(void* context, const rcc_symbol_entry* entry);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
