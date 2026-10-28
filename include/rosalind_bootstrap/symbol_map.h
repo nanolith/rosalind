@@ -139,6 +139,16 @@ void rcc_symbol_map_swap(rcc_symbol_map* left, rcc_symbol_map* right);
  */
 void rcc_symbol_map_count(const rcc_symbol_map* map);
 
+/**
+ * \brief Get the first entry for this symbol map, or NULL if no entries are
+ * found.
+ *
+ * \param map           The symbol map for this operation.
+ *
+ * \returns the first entry or NULL.
+ */
+rcc_symbol_entry* rcc_symbol_map_first(rcc_symbol_map* map);
+
 /* C++ compatibility. */
 # ifdef   __cplusplus
 }
