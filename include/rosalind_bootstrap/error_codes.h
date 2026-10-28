@@ -17,6 +17,8 @@ enum rcc_error_code
 {
     /** \brief Out of memory error. */
     RCC_ERROR_OUT_OF_MEMORY = 1,
+    /** \brief An entry would be overwritten. */
+    RCC_ERROR_WOULD_OVERWRITE,
 };
 
 /* C++ compatibility. */
