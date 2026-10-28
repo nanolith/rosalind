@@ -23,7 +23,7 @@ TEST(quadraticRoot_example_function_declaration)
     rcc_token_details details;
     const char* INPUT = R"(
         PUBLIC quadraticRoot(
-            result: POINTER TO REAL, index: INT(8), a: REAL, b: REAL, c: REAL):
+            result: ^REAL, index: INT(8), a: REAL, b: REAL, c: REAL):
                 BOOLEAN
     )";
 
@@ -55,14 +55,9 @@ TEST(quadraticRoot_example_function_declaration)
         RCC_TOKEN_TYPE_COLON
             == rcc_scanner_read_token(&details, scanner));
 
-    /* the next token should be a POINTER keyword. */
+    /* the next token should be a caret. */
     TEST_ASSERT(
-        RCC_TOKEN_TYPE_KEYWORD_POINTER
-            == rcc_scanner_read_token(&details, scanner));
-
-    /* the next token should be a TO keyword. */
-    TEST_ASSERT(
-        RCC_TOKEN_TYPE_KEYWORD_TO
+        RCC_TOKEN_TYPE_CARET
             == rcc_scanner_read_token(&details, scanner));
 
     /* the next token should be a REAL keyword. */
